@@ -52,17 +52,35 @@ module.exports = function(grunt) {
         }
       }
     },
+    // browser sync
+    browserSync: {
+      bsFiles: {
+        src: [
+        'css/styles.css',
+        'index.html',
+        'js/site.js'
+        ]
+      },
+      options: {
+        server: {
+          baseDir: './'
+        },
+        watchTask: true,
+      },
+    },
+
+
 
     // configure sass documentation --> grunt sassdoc
-    sassdoc: {
-      default: {
-        src: 'scss',
-        dest: 'docs',
-        options: {
-          package: 'package.json'
-        }
-      }
-    },
+    // sassdoc: {
+    //   default: {
+    //     src: 'scss',
+    //     dest: 'docs',
+    //     options: {
+    //       package: 'package.json'
+    //     }
+    //   }
+    // },
 
     // configure concatenation --> grunt concat
     concat: {
@@ -128,8 +146,11 @@ module.exports = function(grunt) {
 
   // DEPENDENT PLUGINS =========================/
 
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-sassdoc');
+  //grunt.loadNpmTasks('grunt-contrib-sass');
+
+  grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-browser-sync');
+  // grunt.loadNpmTasks('grunt-sassdoc');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-imagemin');

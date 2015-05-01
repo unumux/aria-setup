@@ -1,0 +1,20 @@
+//Alert Page Module
+
+.alert {
+	background-color: red;
+	&__header {
+		background-color: rgba(255,255,255, 0.1);
+		@media all and (min-width: 1024px) {
+			width: 940px;
+			margin: 0 auto;
+		}
+	}
+	&__message {
+		color: #fff;
+		font-size: 1.5em;
+		@media all and (min-width: 1024px) {
+			width: 940px;
+			margin: 0 auto;
+		}
+	}
+}
