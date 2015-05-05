@@ -2,7 +2,7 @@
 
 .alert {
 	background-color: red;
-	&__header {
+	&__heading {
 		background-color: rgba(255,255,255, 0.1);
 		@media all and (min-width: 1024px) {
 			width: 940px;
@@ -18,3 +18,4 @@
 		}
 	}
 }
+

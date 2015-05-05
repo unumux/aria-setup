@@ -4,11 +4,16 @@ nav {
 	background-color: pink;
 	.nav__list {
 		display: inline-block;
+		list-style: none;
 		li {
 			float: left;
 		}
 	}
 	.nav__item {
-		color: orange;
+		color: rgba(0, 0, 0, .4);
+		padding: 1em;
+		&:hover {
+			background-color: darken(rgba(0,0,0, .4), 10%);
+		}
 	}
 }

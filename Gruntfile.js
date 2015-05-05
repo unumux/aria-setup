@@ -109,7 +109,7 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ['js/**/*.js'],
-        tasks: ['concat', 'uglify'],
+        tasks: ['concat', 'uglify', 'browserSync'],
         options: {
             spawn: false,
         },
@@ -123,7 +123,6 @@ module.exports = function(grunt) {
       },
       docs: {
         files: ['scss/**/*.scss'],
-        tasks: ['sassdoc'],
         options: {
             spawn: false,
         }
@@ -150,7 +149,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-browser-sync');
-  // grunt.loadNpmTasks('grunt-sassdoc');
+  //grunt.loadNpmTasks('grunt-sassdoc');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
