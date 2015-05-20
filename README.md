@@ -1,4 +1,4 @@
-# ARIA Best Starter
+# ARIA Best Practices Starter
 
 *Disclaimer: This is an evolving project*
 
