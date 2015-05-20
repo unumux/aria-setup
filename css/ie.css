@@ -365,20 +365,20 @@ td, th {
     background-color: rgba(0, 0, 255, 0.5); }
 
 .alert {
-  background-color: red; }
+  background-color: red;
+  color: #fff;
+  padding: 1em;
+  margin: 0; }
   .alert__heading {
-    background-color: rgba(255, 255, 255, 0.1); }
-    @media all and (min-width: 1024px) {
-      .alert__heading {
-        width: 940px;
-        margin: 0 auto; } }
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0;
+    margin: 0; }
   .alert__message {
-    color: #fff;
-    font-size: 1.5em; }
-    @media all and (min-width: 1024px) {
-      .alert__message {
-        width: 940px;
-        margin: 0 auto; } }
+    font-size: 1.5em;
+    padding: 0;
+    margin: 0; }
+    .alert__message > * {
+      margin: 0; }
 
 nav {
   background-color: pink; }

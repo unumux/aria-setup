@@ -1,37 +1,10 @@
 <!DOCTYPE html>
-<!--[if IE 8]>         <html class="no-js lt-ie9 ie8"> <![endif]-->
-<!--[if IE 9]>         <html class="no-js gt-ie9 ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js gt-ie9"> <!--<![endif]-->
+
   <head>
-    <!--
-
-      Description:
-      Version:
-      Author:
-
-    //-->
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- #DNS prefetching -->
-    <!-- http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers -->
-    <link rel="dns-prefetch" href="//ajax.googleapis.com">
-    <link rel="dns-prefetch" href="//use.typekit.net">
-    <link rel="dns-prefetch" href="//google-analytics.com">
-
-    <!-- #Asset Prefetching -->
-    <!-- Fetch and Download Assets before requested by the user  -->
-    <!-- http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers/#section:resource-prefetching -->
-    <link rel="prefetch" href="">
-
-    <!-- #Page Prefetching -->
-    <!-- http://calendar.perfplanet.com/2012/speed-up-your-site-using-prefetching -->
-    <link rel="prefetch" href="index.html">
-
-    <!-- #Typekit -->
-
-    <title>SACSS Practice</title>
+    <title>ARIA Best Practices Practice</title>
     <meta name="description" content="">
     <meta name="robots" content="all">
 
@@ -39,84 +12,65 @@
     <meta name="viewport" content="width=device-width, user-scalable=1, initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <!-- MS Tap Highlight for Windows Phones -->
-    <!-- The tag is specific to Internet Explorer 10 on Windows Phone, and does not apply to Internet Explorer 10 on Windows. -->
-    <!-- http://stackoverflow.com/questions/7508100/webkit-tap-highlight-color-in-windows-phone -->
-    <meta name="msapplication-tap-highlight" content="no">
-
-    <!-- Windows 8 Start Tile -->
-    <meta name="application-name" content=""/>
-    <meta name="msapplication-TileColor" content="#"/>
-    <meta name="msapplication-TileImage" content="start.png"/>
-
-    <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
-    <!-- http://mathiasbynens.be/notes/rel-shortcut-icon -->
-    <!-- http://mathiasbynens.be/notes/touch-icons -->
-
     <!-- CSS, you gotta have style -->
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- Modernizer, cause some browsers suck -->
     <script src="js/libs/modernizr.js"></script>
 
-    </head>
+</head>
   <body>
-
-    <!-- Add your site or application here -->
-    <div class="alert">
+    <div class="alert" role="banner">
         <h1 class="alert__heading">
-            Watch out!
+           This is a banner, set on the alert.
         </h1>
         <section class="alert__message">
-            <p> Here comes the thunder!</p>
+            <p> Aria Banner Role is for site-wide sections of content, and to be added to either a <code><header></code> or div, it can be added to other elements but semantics and best practice advice against.</p>
         </section>
     </div>   
     <header>
     	<h1> Modular CSS Trials</h1>
     </header>
-    <nav>
-         <ul class="nav__list">
-             <li><a class="nav__item" href="">Logout</a></li>
-             <li><a class="nav__item" href="">Home</a></li>
-             <li><a class="nav__item" href="">About</a></li>
-             <li><a class="nav__item" href="">Contact</a></li>
-             <li><a class="nav__item" href="">Locations</a></li>
-         </ul>
-     </nav> 
+    <nav class="primaryNav" role="navigation">
+         <div class="nav__list" role="">
+             <span role=""><a class="nav__item" href="">Logout</a></span>
+             <span role=""><a class="nav__item" href="">Home</a></span>
+             <span role=""><a class="nav__item" href="">About</a></span>
+             <span role=""><a class="nav__item" href="">Contact</a></span>
+             <span role=""><a class="nav__item" href="">Locations</a></span>
+         </div>
+     </nav>
+     <p>One caveat, using lists makes it more difficult for people using screen readers as it is not conducive to the logic for it. It has been suggested to replace unordered lists with spans and divs, as these are invisible to screen readers.</p>
      <div class="carousel">
         <ul>
             <li><a href=""><img src="" alt="carousel image" /></a></li>
             <li><a href=""><img src="" alt="carousel image" /></a></li>
-            <li><a href=""><img src="" alt="carousel image" /></a><rm/li>
+            <li><a href=""><img src="" alt="carousel image" /></a></li>
             <li><a href=""><img src="" alt="carousel image" /></a></li>
             <li><a href=""><img src="" alt="carousel image" /></a></li>
         </ul>
-    <main class="l-primary">
+    </div>
+
+    <main class="l-primary" role="main">
         <div class="main">
             <header class="main__header main--large">
                 <h1> Primary Layout Header Area</h1>
             </header>
-            <section class="main__content">
+            <article class="main__content">
                 <h1>Primary Layout Content return of the Jedi</h1>
-                <p>I don't know what you're talking about. I am a member of the Imperial Senate on a diplomatic mission to Alderaan-- Still, she's got a lot of spirit. I don't know, what do you think? Alderaan? I'm not going to Alderaan. I've got to go home. It's late, I'm in for it as it is. Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force.</p>
-                <h2>The Empire Strikes Back</h2>
-                <p>Look, I ain't in this for your revolution, and I'm not in it for you, Princess. I expect to be well paid. I'm in it for the money. Red Five standing by. All right. Well, take care of yourself, Han. I guess that's what you're best at, ain't it? The more you tighten your grip, Tarkin, the more star systems will slip through your fingers.</p>
-                <ul>
-                <li>Look, I can take you as far as Anchorhead. You can get a transport there to Mos Eisley or wherever you're going.</li>
-                <li>I don't know what you're talking about. I am a member of the Imperial Senate on a diplomatic mission to Alderaan--</li>
-                <li>Oh God, my uncle. How am I ever gonna explain this?</li>
-                </ul>
-                <h3>Revenge of the Sith</h3>
-                <p>Your eyes can deceive you. Don't trust them. I can't get involved! I've got work to do! It's not that I like the Empire, I hate it, but there's nothing I can do about it right now. It's such a long way from here. He is here. He is here. Partially, but it also obeys your commands.</p>
-                <h4>The Empire Strikes Back</h4>
-                <p>Oh God, my uncle. How am I ever gonna explain this? What?! Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force. Don't act so surprised, Your Highness. You weren't on any mercy mission this time. Several transmissions were beamed to this ship by Rebel spies. I want to know what happened to the plans they sent you. Kid, I've flown from one side of this galaxy to the other. I've seen a lot of strange stuff, but I've never seen anything to make me believe there's one all-powerful Force controlling everything. There's no mystical energy field that controls my destiny. It's all a lot of simple tricks and nonsense.</p>
+                <p>The main content section of the site should have the <code>role="main"</code> applied to it.</p>
+                <p>The Tab key should provide focus to the widget as a whole. For example, tabbing to a menu bar should put focus on the menu's first elem.
+The arrow keys should allow for selection or navigation within the widget. For example, using the left and right arrow keys should move focus to the previous and next menu items.
+When the widget is not inside a form, both the Enter and Spacebar keys should select or activate the control.
+Within a form, the Spacebar key should select or activate the control, while the Enter key should submit the form's default action.
+If in doubt, mimic the standard desktop behavior of the control you are creating.</p>
                 <ol>
-                <li>I'm surprised you had the courage to take the responsibility yourself.</li>
-                <li>The Force is strong with this one. I have you now.</li>
+                    <li>I'm surprised you had the courage to take the responsibility yourself.</li>
+                    <li>The Force is strong with this one. I have you now.</li>
                 </ol>
                 <h5>The Phantom Menace</h5>
                 <p>Escape is not his plan. I must face him, alone. He is here. A tremor in the Force. The last time I felt it was in the presence of my old master.</p>
-            </section>
+            </article>
             <footer class="main__footer">
                 <p>Footer inside main layout content</p>
             </footer>
@@ -125,6 +79,16 @@
         <div class="secondary">
             <header class="secondary__header">
                 <h1> Secondary Module Header</h1>
+                <form action="">
+                    <fieldset>
+                        <legend>Name of fieldset</legend>
+                        <div>
+                            <label for="number">Current Value</label>
+                            <input type="text" role="alert" aria-live="assertive" readonly value="0" id="number"/>
+                            
+                        </div>
+                    </fieldset>
+                </form>
             </header>
         </div>
          <div class="tertiary">
@@ -134,7 +98,7 @@
         </div>
 
     </main>
-    <footer>
+    <footer role="contentinfo">
         <p> copyright main site footer
     </footer>
     <!-- SCRIPTS -->

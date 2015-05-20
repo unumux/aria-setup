@@ -2,19 +2,24 @@
 
 .alert {
 	background-color: red;
+	color: #fff;
+	padding: 1em;
+	margin: 0;
 	&__heading {
 		background-color: rgba(255,255,255, 0.1);
+		padding: 0;
+		margin: 0;
 		@media all and (min-width: 1024px) {
-			width: 940px;
-			margin: 0 auto;
 		}
 	}
 	&__message {
-		color: #fff;
 		font-size: 1.5em;
+		padding: 0;
+		margin: 0;
+		> * {
+			margin: 0;
+		}
 		@media all and (min-width: 1024px) {
-			width: 940px;
-			margin: 0 auto;
 		}
 	}
 }
