@@ -344,6 +344,13 @@ table {
 td, th {
   padding: 0; }
 
+.code {
+  background-color: rgba(0, 0, 0, 0.2);
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding-top: 1em; }
+
 .l-primary {
   margin: 0;
   padding: 1em;

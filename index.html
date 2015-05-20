@@ -19,43 +19,54 @@
     <script src="js/libs/modernizr.js"></script>
 
 </head>
-  <body>
-    <div class="alert" role="banner">
-        <h1 class="alert__heading">
-           This is a banner, set on the alert.
-        </h1>
-        <section class="alert__message">
-            <p> Aria Banner Role is for site-wide sections of content, and to be added to either a <code><header></code> or div, it can be added to other elements but semantics and best practice advice against.</p>
-        </section>
-    </div>   
+<body>
     <header>
-    	<h1> Modular CSS Trials</h1>
-    </header>
-    <nav class="primaryNav" role="navigation">
-         <div class="nav__list" role="">
-             <span role=""><a class="nav__item" href="">Logout</a></span>
-             <span role=""><a class="nav__item" href="">Home</a></span>
-             <span role=""><a class="nav__item" href="">About</a></span>
-             <span role=""><a class="nav__item" href="">Contact</a></span>
-             <span role=""><a class="nav__item" href="">Locations</a></span>
-         </div>
-     </nav>
-     <p>One caveat, using lists makes it more difficult for people using screen readers as it is not conducive to the logic for it. It has been suggested to replace unordered lists with spans and divs, as these are invisible to screen readers.</p>
-     <div class="carousel">
-        <ul>
-            <li><a href=""><img src="" alt="carousel image" /></a></li>
-            <li><a href=""><img src="" alt="carousel image" /></a></li>
-            <li><a href=""><img src="" alt="carousel image" /></a></li>
-            <li><a href=""><img src="" alt="carousel image" /></a></li>
-            <li><a href=""><img src="" alt="carousel image" /></a></li>
-        </ul>
-    </div>
-
+        
+    </header>    
     <main class="l-primary" role="main">
         <div class="main">
             <header class="main__header main--large">
-                <h1> Primary Layout Header Area</h1>
+                <h1>ARIA Landmark Summary</h1>
             </header>
+            <p>Role Attributes should only be placed on div or span elements b/c they do not have semantic meaning. If you place a role on a semantic element (like a ul) most screen readers will override the role with the element's native one with the sepecified one.</p>
+           <section>
+                <header>
+                    <h1>Banner</h1>
+                </header>
+                <pre class="code">
+                    &lt;div role="banner"&gt;
+                        &lt;div class="alert"&gt;
+                            &lt;h1 class="alert__heading"&gt;
+                               Warning!
+                            &lt;/h1&gt;
+                            &lt;section class="alert__message"&gt;
+                                At 5:30 EST, severe weather will be incoming!
+                            &lt;/section&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+               </pre>
+               <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
+                </p>
+           </section>
+            <section>
+                <header>
+                    <h1>Navigation</h1>
+                </header>
+                <pre class="code">
+                    &lt;nav class="primaryNav" role="navigation">
+                        &lt;div class="nav__list" role="">
+                            &lt;span role="">&lt;a class="nav__item" href="">Logout&lt;/a>&lt;/span&gt;
+                            &lt;span role="">&lt;a class="nav__item" href="">Home&lt;/a>&lt;/span&gt;
+                            &lt;span role="">&lt;a class="nav__item" href="">About&lt;/a>&lt;/span&gt;
+                            &lt;span role="">&lt;a class="nav__item" href="">Contact&lt;/a>&lt;/span&gt;
+                            &lt;span role="">&lt;a class="nav__item" href="">Locations&lt;/a>&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/nav&gt;
+                </pre>
+                
+                <p>One caveat, using lists makes it more difficult for people using screen readers as it is not conducive to the logic for it. It has been suggested to replace unordered lists with spans and divs, as these are invisible to screen readers.</p>
+     </div>
+            </section>
             <article class="main__content">
                 <h1>Primary Layout Content return of the Jedi</h1>
                 <p>The main content section of the site should have the <code>role="main"</code> applied to it.</p>
