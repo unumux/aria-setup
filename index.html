@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-
-  <head>
+<html>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -17,7 +17,6 @@
 
     <!-- Modernizer, cause some browsers suck -->
     <script src="js/libs/modernizr.js"></script>
-
 </head>
 <body>
     <header>
@@ -53,8 +52,8 @@
                     <h1>Navigation</h1>
                 </header>
                 <pre class="code">
-                    &lt;nav class="primaryNav" role="navigation">
-                        &lt;div class="nav__list" role="">
+                    &lt;nav class="primaryNav" role="navigation"&gt;
+                        &lt;div class="nav__list" role=""&gt;
                             &lt;span role="">&lt;a class="nav__item" href="">Logout&lt;/a>&lt;/span&gt;
                             &lt;span role="">&lt;a class="nav__item" href="">Home&lt;/a>&lt;/span&gt;
                             &lt;span role="">&lt;a class="nav__item" href="">About&lt;/a>&lt;/span&gt;
@@ -64,50 +63,27 @@
                     &lt;/nav&gt;
                 </pre>
                 
-                <p>One caveat, using lists makes it more difficult for people using screen readers as it is not conducive to the logic for it. It has been suggested to replace unordered lists with spans and divs, as these are invisible to screen readers.</p>
-     </div>
+                <p>One caveat with using a list to structure your nav, using lists makes it more difficult for people using screen readers as it is not conducive to the logic for it. It has been suggested to replace unordered lists with spans and divs, as these are invisible to screen readers and therefore easier to navigate. Use in conjunction with navigation role.</p>
             </section>
-            <article class="main__content">
-                <h1>Primary Layout Content return of the Jedi</h1>
-                <p>The main content section of the site should have the <code>role="main"</code> applied to it.</p>
-                <p>The Tab key should provide focus to the widget as a whole. For example, tabbing to a menu bar should put focus on the menu's first elem.
-The arrow keys should allow for selection or navigation within the widget. For example, using the left and right arrow keys should move focus to the previous and next menu items.
-When the widget is not inside a form, both the Enter and Spacebar keys should select or activate the control.
-Within a form, the Spacebar key should select or activate the control, while the Enter key should submit the form's default action.
-If in doubt, mimic the standard desktop behavior of the control you are creating.</p>
-                <ol>
-                    <li>I'm surprised you had the courage to take the responsibility yourself.</li>
-                    <li>The Force is strong with this one. I have you now.</li>
-                </ol>
-                <h5>The Phantom Menace</h5>
-                <p>Escape is not his plan. I must face him, alone. He is here. A tremor in the Force. The last time I felt it was in the presence of my old master.</p>
-            </article>
+            <section>
+                <header>
+                    <h1>Complementary</h1>
+                </header>
+                <pre class="code">
+                    &lt;section class="support" role="complementary"&gt;
+                        &lt;header class="support__title"&gt;Bears lifespan&lt;/header&gt;
+                        &lt;p class="support__content" role=""&gt;
+                            Bears live a long time. They can live without food or water for many months, subsisting only on their own stores of fat and cholesterol. Oddly enough, even in hibernation a bear can rebuild bones and avoid bone loss.
+                        &lt;/p&gt;
+                    &lt;/section&gt;
+                </pre>
+                
+                <p>One caveat with using a list to structure your nav, using lists makes it more difficult for people using screen readers as it is not conducive to the logic for it. It has been suggested to replace unordered lists with spans and divs, as these are invisible to screen readers and therefore easier to navigate. Use in conjunction with navigation role.</p>
+            </section>
             <footer class="main__footer">
                 <p>Footer inside main layout content</p>
             </footer>
         </div>
-
-        <div class="secondary">
-            <header class="secondary__header">
-                <h1> Secondary Module Header</h1>
-                <form action="">
-                    <fieldset>
-                        <legend>Name of fieldset</legend>
-                        <div>
-                            <label for="number">Current Value</label>
-                            <input type="text" role="alert" aria-live="assertive" readonly value="0" id="number"/>
-                            
-                        </div>
-                    </fieldset>
-                </form>
-            </header>
-        </div>
-         <div class="tertiary">
-            <header>
-                <h1>Tertiary info will go here</h1>
-            </header>
-        </div>
-
     </main>
     <footer role="contentinfo">
         <p> copyright main site footer
@@ -117,7 +93,5 @@ If in doubt, mimic the standard desktop behavior of the control you are creating
     <script src="js/build/plugins.js"></script>
     <script src="js/build/global.js"></script>
 
-    <!-- Google Analytics -->
-
-  </body>
+</body>
 </html>

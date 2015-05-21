@@ -99,6 +99,7 @@ module.exports = function(grunt) {
         tasks: ['concat', 'uglify', 'browserSync'],
         options: {
             spawn: false,
+            livereload: true,
         },
       },
       css: {
@@ -106,6 +107,7 @@ module.exports = function(grunt) {
         tasks: ['sass:dev'],
         options: {
             spawn: false,
+            livereload: true,
         }
       },
       docs: {
