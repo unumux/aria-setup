@@ -24,134 +24,71 @@
     </header>    
     <main class="l-primary" role="main">
         <section class="banner" role="banner">
-            <header>
+            <header class="main__header main--large">
                 <h1>ARIA Accessability Guide</h1>
             </header>
-            <h2>ARIA General Best Practices</h2>
-            <ul>
-                <li>Do not disable native browser focus styles</li>
-                <li>Keep link underlines</li>
-                <li>Add skip links at the top of the page in order to guide the user over areas they would like to skip</li>
-                <li>Don't break heading order.</li>
-                <li>Hide content when it isn't in focus. Use 'aria-hidden="true"' on wrapper div, everything in that div is hidden until that property is changed</li>
-            </ul>
+            <p>This is for my benefit initially, as I learn and adapt I will share.</p>
         </section>
-        <article class="main">
-            <header class="main__header main--large">
-                <h1>ARIA Landmark Role Summary</h1>
+    	<article class="main">
+            <header class="main__header" id="GeneralPractices">
+                <h1>ARIA General Best Practices</h1>
             </header>
-            <p>Role Attributes should only be placed on div or span elements b/c they do not have semantic meaning. If you place a role on a semantic element (like a ul) most screen readers will override the role with the element's native one with the sepecified one.</p>
-           <section>
-                <header>
-                    <h1>Banner</h1>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>ARIA General Rules</h1>
                 </header>
-                <pre class="code">
-                    &lt;div role="banner"&gt;
-                        &lt;div class="alert"&gt;
-                            &lt;h1 class="alert__heading"&gt;
-                               Warning!
-                            &lt;/h1&gt;
-                            &lt;section class="alert__message"&gt;
-                                At 5:30 EST, severe weather will be incoming!
-                            &lt;/section&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-               </pre>
-               <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
-                </p>
-           </section>
-            <section>
-                <header>
-                    <h1>Navigation</h1>
-                </header>
-                <pre class="code">
-                    &lt;nav class="primaryNav" role="navigation"&gt;
-                        &lt;div class="nav__list" role=""&gt;
-                            &lt;span role="">&lt;a class="nav__item" href="">Logout&lt;/a>&lt;/span&gt;
-                            &lt;span role="">&lt;a class="nav__item" href="">Home&lt;/a>&lt;/span&gt;
-                            &lt;span role="">&lt;a class="nav__item" href="">About&lt;/a>&lt;/span&gt;
-                            &lt;span role="">&lt;a class="nav__item" href="">Contact&lt;/a>&lt;/span&gt;
-                            &lt;span role="">&lt;a class="nav__item" href="">Locations&lt;/a>&lt;/span&gt;
-                        &lt;/div&gt;
-                    &lt;/nav&gt;
-                </pre>
-                
-                <p>One caveat with using a list to structure your nav, using lists makes it more difficult for people using screen readers as it is not conducive to the logic for it. It has been suggested to replace unordered lists with spans and divs, as these are invisible to screen readers and therefore easier to navigate. Use in conjunction with navigation role.</p>
+                <ul>
+                    <li>Do not disable native browser focus styles</li>
+                    <li>Keep link underlines</li>
+                    <li>Add skip links at the top of the page in order to guide the user over areas they would like to skip</li>
+                    <li>Don't break heading order.</li>
+                    <li>Hide content when it isn't in focus. Use 'aria-hidden="true"' on wrapper div, everything in that div is hidden until that property is changed</li>
+                </ul>
             </section>
-            <section>
-                <header>
-                    <h1>Complementary</h1>
-                </header>
-                <pre class="code">
-                    &lt;section class="support" role="complementary"&gt;
-                        &lt;header class="support__title"&gt;Bears lifespan&lt;/header&gt;
-                        &lt;p class="support__content" role=""&gt;
-                            Bears live a long time. They can live without food or water for many months, subsisting only on their own stores of fat and cholesterol. Oddly enough, even in hibernation a bear can rebuild bones and avoid bone loss.
-                        &lt;/p&gt;
-                    &lt;/section&gt;
-                </pre>
-                <p>One caveat with using a list to structure your nav, using lists makes it more difficult for people using screen readers as it is not conducive to the logic for it. It has been suggested to replace unordered lists with spans and divs, as these are invisible to screen readers and therefore easier to navigate. Use in conjunction with navigation role.</p>
-            </section>
-            <section>
-                <header>
-                    <h1>Contentinfo</h1>
-                </header>
-                <pre class="code">
-                    &lt;footer class="footer" role="contentinfo"&gt;
-                        &lt;header class="footer__title"&gt;Bears lifespan&lt;/header&gt;
-                        &lt;p class="footer__content" role=""&gt;
-                            &copy; copyright is awesome.
-                        &lt;/p&gt;
-                    &lt;/footer&gt;
-                </pre>
-                <p>The contentinfo role is usually for the footer of the page. Again, one per page.</p>
-            </section>
-            <section>
-                <header>
-                    <h1>form</h1>
-                </header>
-                <pre class="code">
-                    &lt;footer class="footer" role="contentinfo"&gt;
-                        &lt;header class="footer__title"&gt;Bears lifespan&lt;/header&gt;
-                        &lt;p class="footer__content" role=""&gt;
-                            &copy; copyright is awesome.
-                        &lt;/p&gt;
-                    &lt;/footer&gt;
-                </pre>
-                <p>The form role contains form elements which can be submitted by user.</p>
-            </section>
-            <footer class="main__footer">
-                <p>Footer inside main layout content</p>
-            </footer>
         </article>
-        
+
         <article class="main">
-            <header class="main__header main--large">
-                <h1>ARIA Attributes</h1>
+            <header class="main__header" id="KeyboardRequirements">
+                <h1>ARIA Keyboard Requirements</h1>
             </header>
-            <p>Attributes blah blah</p>
-           <section>
-                <header>
-                    <h1>Aria-Hidden</h1>
+            <p>This is a requirement, not just a best practice section. We need to begin doing this.</p>
+           <section class="bit">
+                <header class="bit__header">
+                    <h1>Keyboard Bindings/Behaviors</h1>
                 </header>
-                <p>Boolean accepts true or false. It can fail, so if it doesnt work right remove the attribute altogether. Dont set it if you dont need it.</p>
+                <ul>
+                    <li>We must support users who cannot use a pointing device.</li>
+                    <li>tabindex attribute is applicable to all renderable html elements:
+                        <ul>
+                            <li>tab &amp; tab + shift move focus among widgets and standard html controls</li>
+                            <li>element with tabindex=0 is added to tab sequence based on document order.</li>
+                            <li>element with tabindex&gt;0 will be added to tab sequence based on that # value</li>
+                            <li>element with tabindex&lt;0 will not be added to the tab sequence, but are enabled to recieve keyboard focus.</li>
+                        </ul>
+                    </li>
+                    <li>Once a widget has focus, arrow keys, spacebar, enter or other keys should be able to be used to navigate the options of the widget, change its state, or trigger its function(submit etc)</li>
+                    <li>Use onfocus to track the current focus.</li>
+                    <li>Follow keydowns to move focus. a keydown event handler can determine the next object to recieve focus and call that element's method. Use onkeydown, not onkeypress.</li>
+                    <li>refresh the element recieving focus's style using onfocus() to avoid inconsistent browser experiences.</li>
+                    <li>Disabled controls should not be in the tab order.</li>
+                    <li>Dont use :focus or attribute selectors to style the focus. IE issue. In stead, set the style in an onfocus event handler.</li>
+                    <li><span class="warn">Always draw focus for tabindex="-1" or any items that recieve focus IE will not always draw focus on items that are getting focus programatically.</span></li>
+                        <li>Prevent used key events from performing browser functions whilst in widget. For instance, if the arrow key is pressed, prevent it from scrolling the page with some JS code.</li>
+                </ul>
                 <pre class="code">
-                    &lt;div role="banner"&gt;
-                        &lt;div class="alert"&gt;
-                            &lt;h1 class="alert__heading"&gt;
-                               Warning!
-                            &lt;/h1&gt;
-                            &lt;section class="alert__message"&gt;
-                                At 5:30 EST, severe weather will be incoming!
-                            &lt;/section&gt;
+                    &lt;div class="myWidget"&gt;
+                        &lt;div class="controls"&gt;
+                            &lt;input class="widget__field" value="First Name" type="text" tabindex="0" /&gt;
+                            &lt;input class="widget__field" value="Last Name" type="text" tabindex="-1" /&gt;
+                            &lt;input type="submit" tabindex="-1" /&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;
                </pre>
-               <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
+               <p>Roving focus example above. If you tab away and then tab back to the widget, same last active descendant becomes active again. Requires some JS to work in conjunction with the 
                 </p>
             </section>
-            <section>
-                <header>
+            <section class="bit">
+                <header class="bit__header">
                     <h1>Aria-Controls</h1>
                 </header>
                 <p>Boolean accepts true or false. It can fail, so if it doesnt work right remove the attribute altogether. Dont set it if you dont need it.</p>
@@ -176,6 +113,255 @@
         </article>
         
         
+        <article class="main">
+            <header class="main__header" id="LandmarkRoles">
+                <h1>ARIA Landmark Role Summary</h1>
+            </header>
+            <p>Role Attributes should only be placed on an HTML5 equivalant element (nav gets a role of navigation etc) or non-semantic elements b/c they do not have semantic meaning. If you place a role on a semantic element (like a ul) most screen readers will override the role with the element's native one with the sepecified one.</p>
+           <section class="bit">
+                <header class="bit__header">
+                    <h1>banner</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;header&gt;</p>
+                </header>
+                <pre class="code">
+                    &lt;div role="banner"&gt;
+                        &lt;div class="alert"&gt;
+                            &lt;h1 class="alert__heading"&gt;
+                               Warning!
+                            &lt;/h1&gt;
+                            &lt;section class="alert__message"&gt;
+                                At 5:30 EST, severe weather will be incoming!
+                            &lt;/section&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+               </pre>
+               <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
+                </p>
+           </section>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>navigation</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;nav&gt;</p>
+                </header>
+                <pre class="code">
+                    &lt;nav class="primaryNav" role="navigation"&gt;
+                        &lt;div class="nav__list" role=""&gt;
+                            &lt;span role="">&lt;a class="nav__item" href="">Logout&lt;/a>&lt;/span&gt;
+                            &lt;span role="">&lt;a class="nav__item" href="">Home&lt;/a>&lt;/span&gt;
+                            &lt;span role="">&lt;a class="nav__item" href="">About&lt;/a>&lt;/span&gt;
+                            &lt;span role="">&lt;a class="nav__item" href="">Contact&lt;/a>&lt;/span&gt;
+                            &lt;span role="">&lt;a class="nav__item" href="">Locations&lt;/a>&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/nav&gt;
+                </pre>
+                
+                <p>One caveat with using a list to structure your nav, using lists makes it more difficult for people using screen readers as it is not conducive to the logic for it. It has been suggested to replace unordered lists with spans and divs, as these are invisible to screen readers and therefore easier to navigate. Use in conjunction with navigation role.</p>
+            </section>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>complementary</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;aside&gt;</p>
+                </header>
+                <pre class="code">
+                    &lt;section class="support" role="complementary"&gt;
+                        &lt;header class="support__title"&gt;Bears lifespan&lt;/header&gt;
+                        &lt;p class="support__content"&gt;
+                            Bears live a long time. They can live without food or water for many months, subsisting only on their own stores of fat and cholesterol. Oddly enough, even in hibernation a bear can rebuild bones and avoid bone loss.
+                        &lt;/p&gt;
+                    &lt;/section&gt;
+                </pre>
+                <p>Complementary roles are the equvilant of using an aside. Think of them as tertiary content just the same as you add roles to your code.</p>
+            </section>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>contentinfo</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;footer&gt;</p>
+                </header>
+                <pre class="code">
+                    &lt;footer class="footer" role="contentinfo"&gt;
+                        &lt;header class="footer__title"&gt;Bears lifespan&lt;/header&gt;
+                        &lt;p class="footer__content" role=""&gt;
+                            &copy; copyright is awesome.
+                        &lt;/p&gt;
+                    &lt;/footer&gt;
+                </pre>
+                <p>The contentinfo role is usually for the footer of the page. Again, one per page.</p>
+            </section>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>form</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;form&gt;</p>
+                </header>
+                <pre class="code">
+                    &lt;form class="form" role="form"&gt;
+                        &lt;label for="firstName" class="footer__title"&gt;Bears lifespan&lt;/label&gt;
+                        &lt;input type="text" id="firstName" role="" /&gt;
+                    &lt;/form&gt;
+                </pre>
+                <p>The form role contains form elements which can be submitted by user.</p>
+            </section>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>main</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;main&gt;</p>
+                </header>
+                <pre class="code">
+                    &lt;main class="primaryContent" role="main"&gt;
+                        &lt;section class="bit"&gt;
+                            &lt;header class="bit__title"&gt;
+                                Bears lifespan
+                            &lt;/header&gt;
+                            &lt;p class="bit__content"&gt;
+                                Bears are pretty awesome, guys.
+                        &lt;/section&gt;
+                    &lt;/main&gt;
+                </pre>
+                <p>The main role is for the main content of the page. Therer should only be one main landmark per page.</p>
+            </section>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>search</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;form&gt;</p>
+                </header>
+                <pre class="code">
+                    &lt;main class="primaryContent" role="search"&gt;
+                        &lt;label for="search"&gt;Search Here&lt;/label&gt;
+                        &lt;input type="text" id="search" role="" /&gt;
+                    &lt;/form&gt;
+                </pre>
+                <p>Reserved for the search tool.</p>
+            </section>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>application</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;div&gt;</p>
+                </header>
+                <pre class="code">
+                    &lt;div class="primaryContent" role="application"&gt;
+
+                    &lt;/div&gt;
+                </pre>
+                <p>Represents a unique software unit. Keyboard commands handled by application rather than browser itself. Use sparingly if at all.</p>
+            </section>
+            <footer class="main__footer">
+                <p>Footer inside main layout content</p>
+            </footer>
+        </article>
+        
+        <article class="main">
+            <header class="main__header" id="Attributes">
+                <h1>ARIA Attributes</h1>
+            </header>
+            <p>Attributes blah blah</p>
+           <section class="bit">
+                <header class="bit__header">
+                    <h1>Aria-Hidden</h1>
+                </header>
+                <p>Boolean accepts true or false. It can fail, so if it doesnt work right remove the attribute altogether. Dont set it if you dont need it.</p>
+                <pre class="code">
+                    &lt;div role="banner"&gt;
+                        &lt;div class="alert"&gt;
+                            &lt;h1 class="alert__heading"&gt;
+                               Warning!
+                            &lt;/h1&gt;
+                            &lt;section class="alert__message"&gt;
+                                At 5:30 EST, severe weather will be incoming!
+                            &lt;/section&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+               </pre>
+               <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
+                </p>
+            </section>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>Aria-Controls</h1>
+                </header>
+                <p>Boolean accepts true or false. It can fail, so if it doesnt work right remove the attribute altogether. Dont set it if you dont need it.</p>
+                <pre class="code">
+                    &lt;div role="banner"&gt;
+                        &lt;div class="alert"&gt;
+                            &lt;h1 class="alert__heading"&gt;
+                               Warning!
+                            &lt;/h1&gt;
+                            &lt;section class="alert__message"&gt;
+                                At 5:30 EST, severe weather will be incoming!
+                            &lt;/section&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+               </pre>
+               <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
+                </p>
+           </section>
+           <footer class="main__footer">
+                <p>Footer inside main layout content</p>
+            </footer>
+        </article>
+        
+     <article class="main">
+            <header class="main__header">
+                <h1>ARIA Labels</h1>
+            </header>
+            <p>This is a requirement, not just a best practice section. We need to begin doing this.</p>
+           <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-label</h1>
+                </header>
+                <ul>
+                    <li>We must support users who cannot use a pointing device.</li>
+                    <li>tabindex attribute is applicable to all renderable html elements:
+                        <ul>
+                            <li>tab &amp; tab + shift move focus among widgets and standard html controls</li>
+                            <li>element with tabindex=0 is added to tab sequence based on document order.</li>
+                            <li>element with tabindex&gt;0 will be added to tab sequence based on that # value</li>
+                            <li>element with tabindex&lt;0 will not be added to the tab sequence, but are enabled to recieve keyboard focus.</li>
+                        </ul>
+                    </li>
+                    <li>Once a widget has focus, arrow keys, spacebar, enter or other keys should be able to be used to navigate the options of the widget, change its state, or trigger its function(submit etc)</li>
+                    <li>Use onfocus to track the current focus.</li>
+                    <li>Follow keydowns to move focus. a keydown event handler can determine the next object to recieve focus and call that element's method. Use onkeydown, not onkeypress.</li>
+                    <li>refresh the element recieving focus's style using onfocus() to avoid inconsistent browser experiences.</li>
+                    <li>Disabled controls should not be in the tab order.</li>
+                    <li>Dont use :focus or attribute selectors to style the focus. IE issue. In stead, set the style in an onfocus event handler.</li>
+                    <li><span class="warn">Always draw focus for tabindex="-1" or any items that recieve focus IE will not always draw focus on items that are getting focus programatically.</span></li>
+                        <li>Prevent used key events from performing browser functions whilst in widget. For instance, if the arrow key is pressed, prevent it from scrolling the page with some JS code.</li>
+                </ul>
+                <pre class="code">
+                    &lt;div class="myWidget"&gt;
+                        &lt;div class="controls"&gt;
+                            &lt;input class="widget__field" value="First Name" type="text" tabindex="0" /&gt;
+                            &lt;input class="widget__field" value="Last Name" type="text" tabindex="-1" /&gt;
+                            &lt;input type="submit" tabindex="-1" /&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+               </pre>
+               <p>Roving focus example above. If you tab away and then tab back to the widget, same last active descendant becomes active again. Requires some JS to work in conjunction with the 
+                </p>
+            </section>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>Aria-Controls</h1>
+                </header>
+                <p>Boolean accepts true or false. It can fail, so if it doesnt work right remove the attribute altogether. Dont set it if you dont need it.</p>
+                <pre class="code">
+                    &lt;div role="banner"&gt;
+                        &lt;div class="alert"&gt;
+                            &lt;h1 class="alert__heading"&gt;
+                               Warning!
+                            &lt;/h1&gt;
+                            &lt;section class="alert__message"&gt;
+                                At 5:30 EST, severe weather will be incoming!
+                            &lt;/section&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+               </pre>
+               <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
+                </p>
+           </section>
+           <footer class="main__footer">
+                <p>Footer inside main layout content</p>
+            </footer>
+        </article>   
         
         
     </main>

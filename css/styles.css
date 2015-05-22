@@ -346,20 +346,23 @@ td, th {
 
 .code {
   background-color: rgba(0, 0, 0, 0.2);
-  font-family: monospace;
+  font-size: .8em;
+  line-height: 1.6em;
   white-space: pre-wrap;
   word-wrap: break-word;
-  padding-top: 1em; }
+  padding: 1em; }
 
 .l-primary {
   margin: 0;
   padding: 1em;
-  background-color: rgba(255, 15, 255, 0.2); }
+  background-color: rgba(65, 0, 255, 0.2); }
 
+.main__header {
+  margin: 0; }
 .main--large {
   font-size: 150%; }
 .main__footer {
-  background-color: purple; }
+  background-color: rgba(255, 255, 255, 0.2); }
 
 .secondary {
   background-color: #cecece; }
@@ -394,6 +397,16 @@ nav {
     padding: 1em; }
     nav .nav__item:hover {
       background-color: rgba(0, 0, 0, 0.4); }
+
+.bit {
+  border-top: 1px solid rgba(0, 0, 0, 0.5); }
+  .bit__header {
+    font-size: .75em;
+    color: rgba(0, 0, 0, 0.5); }
+  .bit__summary {
+    color: rgba(0, 0, 0, 0.5);
+    letter-spacing: .25em;
+    font-size: .9em; }
 
 @media print {
   * {

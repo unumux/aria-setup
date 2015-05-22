@@ -2,11 +2,12 @@
 
 .main {	
 	&__header {
+		margin: 0;
 	}
 	&--large {
 		font-size: 150%;
 	}
 	&__footer {
-		background-color: purple;
+		background-color: rgba(255, 255, 255, .2);
 	}
 }
