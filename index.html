@@ -253,57 +253,7 @@
                 <h1>ARIA Attributes</h1>
             </header>
             <p>Attributes blah blah</p>
-           <section class="bit">
-                <header class="bit__header">
-                    <h1>Aria-Hidden</h1>
-                </header>
-                <p>Boolean accepts true or false. It can fail, so if it doesnt work right remove the attribute altogether. Dont set it if you dont need it.</p>
-                <pre class="code">
-                    &lt;div role="banner"&gt;
-                        &lt;div class="alert"&gt;
-                            &lt;h1 class="alert__heading"&gt;
-                               Warning!
-                            &lt;/h1&gt;
-                            &lt;section class="alert__message"&gt;
-                                At 5:30 EST, severe weather will be incoming!
-                            &lt;/section&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-               </pre>
-               <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
-                </p>
-            </section>
-            <section class="bit">
-                <header class="bit__header">
-                    <h1>Aria-Controls</h1>
-                </header>
-                <p>Boolean accepts true or false. It can fail, so if it doesnt work right remove the attribute altogether. Dont set it if you dont need it.</p>
-                <pre class="code">
-                    &lt;div role="banner"&gt;
-                        &lt;div class="alert"&gt;
-                            &lt;h1 class="alert__heading"&gt;
-                               Warning!
-                            &lt;/h1&gt;
-                            &lt;section class="alert__message"&gt;
-                                At 5:30 EST, severe weather will be incoming!
-                            &lt;/section&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-               </pre>
-               <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
-                </p>
-           </section>
-           <footer class="main__footer">
-                <p>Footer inside main layout content</p>
-            </footer>
-        </article>
-        
-     <article class="main">
-            <header class="main__header">
-                <h1>ARIA Labels</h1>
-            </header>
-            <p>This is a requirement, not just a best practice section. We need to begin doing this.</p>
-           <section class="bit">
+             <section class="bit">
                 <header class="bit__header">
                     <h1>aria-label</h1>
                 </header>
@@ -340,7 +290,7 @@
             </section>
             <section class="bit">
                 <header class="bit__header">
-                    <h1>Aria-Controls</h1>
+                    <h1>aria-controls</h1>
                 </header>
                 <p>Boolean accepts true or false. It can fail, so if it doesnt work right remove the attribute altogether. Dont set it if you dont need it.</p>
                 <pre class="code">
@@ -357,6 +307,120 @@
                </pre>
                <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
                 </p>
+           </section>
+           <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-hidden</h1>
+                </header>
+                <p>Boolean accepts true or false. It can fail, so if it doesnt work right remove the attribute altogether. Dont set it if you dont need it.</p>
+                <pre class="code">
+                    &lt;div role="banner"&gt;
+                        &lt;div class="alert"&gt;
+                            &lt;h1 class="alert__heading"&gt;
+                               Warning!
+                            &lt;/h1&gt;
+                            &lt;section class="alert__message"&gt;
+                                At 5:30 EST, severe weather will be incoming!
+                            &lt;/section&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+               </pre>
+               <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
+                </p>
+            </section>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-controls</h1>
+                </header>
+                <p>Boolean accepts true or false. It can fail, so if it doesnt work right remove the attribute altogether. Dont set it if you dont need it.</p>
+                <pre class="code">
+                    &lt;div role="banner"&gt;
+                        &lt;div class="alert"&gt;
+                            &lt;h1 class="alert__heading"&gt;
+                               Warning!
+                            &lt;/h1&gt;
+                            &lt;section class="alert__message"&gt;
+                                At 5:30 EST, severe weather will be incoming!
+                            &lt;/section&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+               </pre>
+               <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
+                </p>
+           </section>
+           <footer class="main__footer">
+                <p>Footer inside main layout content</p>
+            </footer>
+        </article>
+        
+     <article class="main">
+            <header class="main__header">
+                <h1>ARIA Global States/Properties</h1>
+            </header>
+            <p>These can be set on any element regardless of whether a role is applied or not. These are supported by all roles and base markup elements.</p>
+            <p>These below need explanations and examples. Work in progress.</p>
+            <ul>
+                <li>aria-atomic</li>
+                <li>aria-busy (state)</li>
+                <li>aria-controls</li>
+                <li>aria-describedby</li>
+                <li>aria-disabled (state)</li>
+                <li>aria-dropeffect</li>
+                <li>aria-flowto</li>
+                <li>aria-grabbed (state)</li>
+                <li>aria-haspopup</li>
+                <li>aria-hidden (state)</li>
+                <li>aria-invalid (state)</li>
+                <li>aria-label</li>
+                <li>aria-labelledby</li>
+                <li>aria-live</li>
+                <li>aria-owns</li>
+                <li>aria-relevant</li>
+            </ul>
+            <p>These are specific widget attributes specific to common user interface elements which recieve user input and process actions. These are used to support widget roles.</p>
+            <p>This also will need work and examples and code.</p>
+            <ul>
+                <li>aria-autocomplete</li>
+                <li>aria-checked (state)</li>
+                <li>aria-disabled (state)</li>
+                <li>aria-expanded (state)</li>
+                <li>aria-haspopup</li>
+                <li>aria-hidden (state)</li>
+                <li>aria-invalid (state)</li>
+                <li>aria-label</li>
+                <li>aria-level</li>
+                <li>aria-multiline</li>
+                <li>aria-multiselectable</li>
+                <li>aria-orientation</li>
+                <li>aria-pressed (state)</li>
+                <li>aria-readonly</li>
+                <li>aria-required</li>
+                <li>aria-selected (state)</li>
+                <li>aria-sort</li>
+                <li>aria-valuemax</li>
+                <li>aria-valuemin</li>
+                <li>aria-valuenow</li>
+                <li>aria-valuetext</li>
+            </ul>
+          
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-atomic</h1>
+                </header>
+                <p>Research will go up in here and examples below</p>
+                <pre class="code">
+                    &lt;div role="banner"&gt;
+                        &lt;div class="alert"&gt;
+                            &lt;h1 class="alert__heading"&gt;
+                               Warning!
+                            &lt;/h1&gt;
+                            &lt;section class="alert__message"&gt;
+                                At 5:30 EST, severe weather will be incoming!
+                            &lt;/section&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+               </pre>
+               <p>Are</p>
            </section>
            <footer class="main__footer">
                 <p>Footer inside main layout content</p>

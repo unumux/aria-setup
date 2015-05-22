@@ -9,8 +9,12 @@
 // where appropriate.
 
 
+body,
+html {
+	background-color: rgba(65, 0, 255, .15);	
+}
+
 .l-primary {
 	margin: 0;
 	padding: 1em;
-	background-color: rgba(65, 0, 255, .2);
 }
