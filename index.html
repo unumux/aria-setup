@@ -257,25 +257,7 @@
                 <header class="bit__header">
                     <h1>aria-label</h1>
                 </header>
-                <ul>
-                    <li>We must support users who cannot use a pointing device.</li>
-                    <li>tabindex attribute is applicable to all renderable html elements:
-                        <ul>
-                            <li>tab &amp; tab + shift move focus among widgets and standard html controls</li>
-                            <li>element with tabindex=0 is added to tab sequence based on document order.</li>
-                            <li>element with tabindex&gt;0 will be added to tab sequence based on that # value</li>
-                            <li>element with tabindex&lt;0 will not be added to the tab sequence, but are enabled to recieve keyboard focus.</li>
-                        </ul>
-                    </li>
-                    <li>Once a widget has focus, arrow keys, spacebar, enter or other keys should be able to be used to navigate the options of the widget, change its state, or trigger its function(submit etc)</li>
-                    <li>Use onfocus to track the current focus.</li>
-                    <li>Follow keydowns to move focus. a keydown event handler can determine the next object to recieve focus and call that element's method. Use onkeydown, not onkeypress.</li>
-                    <li>refresh the element recieving focus's style using onfocus() to avoid inconsistent browser experiences.</li>
-                    <li>Disabled controls should not be in the tab order.</li>
-                    <li>Dont use :focus or attribute selectors to style the focus. IE issue. In stead, set the style in an onfocus event handler.</li>
-                    <li><span class="warn">Always draw focus for tabindex="-1" or any items that recieve focus IE will not always draw focus on items that are getting focus programatically.</span></li>
-                        <li>Prevent used key events from performing browser functions whilst in widget. For instance, if the arrow key is pressed, prevent it from scrolling the page with some JS code.</li>
-                </ul>
+                <p>Aria-label info here.</p>
                 <pre class="code">
                     &lt;div class="myWidget"&gt;
                         &lt;div class="controls"&gt;
@@ -288,26 +270,6 @@
                <p>Roving focus example above. If you tab away and then tab back to the widget, same last active descendant becomes active again. Requires some JS to work in conjunction with the 
                 </p>
             </section>
-            <section class="bit">
-                <header class="bit__header">
-                    <h1>aria-controls</h1>
-                </header>
-                <p>Boolean accepts true or false. It can fail, so if it doesnt work right remove the attribute altogether. Dont set it if you dont need it.</p>
-                <pre class="code">
-                    &lt;div role="banner"&gt;
-                        &lt;div class="alert"&gt;
-                            &lt;h1 class="alert__heading"&gt;
-                               Warning!
-                            &lt;/h1&gt;
-                            &lt;section class="alert__message"&gt;
-                                At 5:30 EST, severe weather will be incoming!
-                            &lt;/section&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-               </pre>
-               <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
-                </p>
-           </section>
            <section class="bit">
                 <header class="bit__header">
                     <h1>aria-hidden</h1>
