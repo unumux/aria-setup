@@ -294,14 +294,16 @@
                 <header class="bit__header">
                     <h1>aria-hidden (state)</h1>
                 </header>
-                <p>aria hidden explanation.</p>
+                <p>This indicates that this element and all its descendants are not visible or perceivable to any user.</p>
+                <p>If that element is only visible after a user action, the attribute has to be set to 'true'. When that element is visible, the attribute must be changed from 'true' to 'false' in order to indicate the state change. This must be set regardless of the mechanic used to hide/show the item. This allows hidden elements to be skipped by assistive technologies/user agents. CSS attribute selector can be used to hide a hidden element, while JS would only be used to update the value of the attribute on click.</p>
+                <p class="note">Both CSS declarations "visibility: hidden;" and "display: none;" hide the content from assistive technologies that access the DOM through rendering engine. </p>
                 <pre class="code">
                     &lt;div role="banner"&gt;
                         &lt;div class="alert"&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;
                </pre>
-               <p> Aria hidden best practices.
+               <p> Aria hidden best practices go hee!
                 </p>
             </section>
             <section class="bit">

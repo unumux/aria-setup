@@ -107,14 +107,7 @@ module.exports = function(grunt) {
         options: {
             //spawn: false
         }
-      },
-      docs: {
-        files: ['scss/**/*.scss'],
-        options: {
-            //spawn: false
-        }
       }
-
     },
 
     // configure image optimization --> grunt imagemin
