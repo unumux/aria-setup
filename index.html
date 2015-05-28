@@ -250,44 +250,58 @@
         
         <article class="main">
             <header class="main__header" id="Attributes">
-                <h1>ARIA Attributes</h1>
+                <h1>Global ARIA States/Properties</h1>
             </header>
-            <p>Attributes blah blah</p>
+            <p>These can be set on any element regardless of whether a role is applied or not. These are supported by all roles and base markup elements.</p>
              <section class="bit">
                 <header class="bit__header">
                     <h1>aria-label</h1>
                 </header>
-                <p>Aria-label info here.</p>
+                <p>A string value that labels the current element with a recognizable object name.</p>
+                <p>Use aria-label if it is for text that is NOT visible on a screen. <span class="note">(if there is visible text labelling the element, use aria-labelledby instead)</span></p>
                 <pre class="code">
-                    &lt;div class="myWidget"&gt;
+                    &lt;div class="control"&gt;
                         &lt;div class="controls"&gt;
-                            &lt;input class="widget__field" value="First Name" type="text" tabindex="0" /&gt;
-                            &lt;input class="widget__field" value="Last Name" type="text" tabindex="-1" /&gt;
-                            &lt;input type="submit" tabindex="-1" /&gt;
+                           &lt;button aria-label="Close" onclick="myAction.close()"&gt;X&lt;/button&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;
                </pre>
-               <p>Roving focus example above. If you tab away and then tab back to the widget, same last active descendant becomes active again. Requires some JS to work in conjunction with the 
+               <p>Because there is nothing in the button text that actually says it closes the page, using a label there is a good practice.
                 </p>
             </section>
-           <section class="bit">
+            <section class="bit">
                 <header class="bit__header">
-                    <h1>aria-hidden</h1>
+                    <h1>aria-labelledby</h1>
                 </header>
-                <p>Boolean accepts true or false. It can fail, so if it doesnt work right remove the attribute altogether. Dont set it if you dont need it.</p>
+                <p>ID's the element that is labelling the current element. Same purpose as aria-label; to give the user a recognizable object name. Note that there are 3 'l's total in that, not 2. </p>
+                <p>If the text is visible on screen, use aria-labelledby. Screen readers give precedence to aria-lablledby over aria-label.</p>
+                <pre class="code">
+                    &lt;div id="action" class="actions"&gt;
+                        &lt;div&gt;
+                            &lt;div id="name"&gt;Name&lt;/div&gt;
+                            &lt;input type="text" aria-labelledby="name action"/&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;div id="name"&gt;Phone&lt;/div&gt;
+                            &lt;input type="text" aria-labelledby="phone action"/&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+               </pre>
+               <p>This code represents input fields being labelled by both inidividual labels and a group label on an ancestor.
+                </p>
+            </section>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-hidden (state)</h1>
+                </header>
+                <p>aria hidden explanation.</p>
                 <pre class="code">
                     &lt;div role="banner"&gt;
                         &lt;div class="alert"&gt;
-                            &lt;h1 class="alert__heading"&gt;
-                               Warning!
-                            &lt;/h1&gt;
-                            &lt;section class="alert__message"&gt;
-                                At 5:30 EST, severe weather will be incoming!
-                            &lt;/section&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;
                </pre>
-               <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
+               <p> Aria hidden best practices.
                 </p>
             </section>
             <section class="bit">
@@ -307,7 +321,7 @@
                         &lt;/div&gt;
                     &lt;/div&gt;
                </pre>
-               <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
+               <p> Aria Controls info.
                 </p>
            </section>
            <footer class="main__footer">
@@ -317,7 +331,7 @@
         
      <article class="main">
             <header class="main__header">
-                <h1>ARIA Global States/Properties</h1>
+                <h1>Full list of global props to be explained above</h1>
             </header>
             <p>These can be set on any element regardless of whether a role is applied or not. These are supported by all roles and base markup elements.</p>
             <p>These below need explanations and examples. Work in progress.</p>

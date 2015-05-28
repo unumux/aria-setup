@@ -65,8 +65,8 @@ module.exports = function(grunt) {
         server: {
           baseDir: './'
         },
-        watchTask: true,
-      },
+        watchTask: true
+      }
     },
 
     // configure concatenation --> grunt concat
@@ -98,22 +98,20 @@ module.exports = function(grunt) {
         files: ['js/**/*.js'],
         tasks: ['concat', 'uglify', 'browserSync'],
         options: {
-            spawn: false,
-            livereload: true,
-        },
+            //spawn: false
+        }
       },
       css: {
         files: ['scss/**/*.scss'],
         tasks: ['sass:dev'],
         options: {
-            spawn: false,
-            livereload: true,
+            //spawn: false
         }
       },
       docs: {
         files: ['scss/**/*.scss'],
         options: {
-            spawn: false,
+            //spawn: false
         }
       }
 
@@ -134,7 +132,7 @@ module.exports = function(grunt) {
 
   // DEPENDENT PLUGINS =========================/
 
-  //grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-browser-sync');
@@ -145,7 +143,6 @@ module.exports = function(grunt) {
 
   // TASKS =====================================/
 
-  grunt.registerTask( 'default', [ 'watch'] ); // default 'grunt'
-  grunt.registerTask( 'build', [ 'imagemin','sass:prod' ] ); // optimize images, compress css
-
+  grunt.registerTask( 'prod', [ 'sass:prod' ] ); // optimize images, compress css
+  grunt.registerTask( 'dev', ['watch', 'sass:dev'] );
 };

@@ -352,6 +352,11 @@ td, th {
   word-wrap: break-word;
   padding: 1em; }
 
+.note {
+  font-style: italic;
+  font-size: .9em;
+  color: rgba(0, 0, 0, 0.5); }
+
 body, html {
   background-color: rgba(65, 0, 255, 0.15);
   font-size: 100%; }
