@@ -43,7 +43,6 @@
                     <li>All ARIA controls must be useable by keyboard.</li>
                     <li>Do not use "role='presentation'" or "aria-hidden='true'" on any visible focusable element.</li>
                     <li>All interactive elements must have an accessible name.</li>
-                    <li></li>
                 </ul>
             </section>
 
@@ -96,8 +95,7 @@
                             &lt;input class="widget__field" value="Last Name" type="text" tabindex="-1" /&gt;
                             &lt;input type="submit" tabindex="-1" /&gt;
                         &lt;/div&gt;
-                    &lt;/div&gt;
-               </pre>
+                    &lt;/div&gt;</pre>
                <p>Roving focus example above. If you tab away and then tab back to the widget, same last active descendant becomes active again. Requires some JS to work in conjunction with the 
                 </p>
             </section>
@@ -116,8 +114,7 @@
                                 At 5:30 EST, severe weather will be incoming!
                             &lt;/section&gt;
                         &lt;/div&gt;
-                    &lt;/div&gt;
-               </pre>
+                    &lt;/div&gt;</pre>
                <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
                 </p>
            </section>
@@ -147,8 +144,7 @@
                                 At 5:30 EST, severe weather will be incoming!
                             &lt;/section&gt;
                         &lt;/div&gt;
-                    &lt;/div&gt;
-               </pre>
+                    &lt;/div&gt;</pre>
                <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
                 </p>
            </section>
@@ -166,9 +162,7 @@
                             &lt;span role="">&lt;a class="nav__item" href="">Contact&lt;/a>&lt;/span&gt;
                             &lt;span role="">&lt;a class="nav__item" href="">Locations&lt;/a>&lt;/span&gt;
                         &lt;/div&gt;
-                    &lt;/nav&gt;
-                </pre>
-                
+                    &lt;/nav&gt;</pre>                
                 <p>One caveat with using a list to structure your nav, using lists makes it more difficult for people using screen readers as it is not conducive to the logic for it. It has been suggested to replace unordered lists with spans and divs, as these are invisible to screen readers and therefore easier to navigate. Use in conjunction with navigation role.</p>
             </section>
             <section class="bit">
@@ -182,8 +176,7 @@
                         &lt;p class="support__content"&gt;
                             Bears live a long time. They can live without food or water for many months, subsisting only on their own stores of fat and cholesterol. Oddly enough, even in hibernation a bear can rebuild bones and avoid bone loss.
                         &lt;/p&gt;
-                    &lt;/section&gt;
-                </pre>
+                    &lt;/section&gt;</pre>
                 <p>Complementary roles are the equvilant of using an aside. Think of them as tertiary content just the same as you add roles to your code.</p>
             </section>
             <section class="bit">
@@ -197,8 +190,7 @@
                         &lt;p class="footer__content" role=""&gt;
                             &copy; copyright is awesome.
                         &lt;/p&gt;
-                    &lt;/footer&gt;
-                </pre>
+                    &lt;/footer&gt;</pre>
                 <p>The contentinfo role is usually for the footer of the page. Again, one per page.</p>
             </section>
             <section class="bit">
@@ -210,8 +202,7 @@
                     &lt;form class="form" role="form"&gt;
                         &lt;label for="firstName" class="footer__title"&gt;Bears lifespan&lt;/label&gt;
                         &lt;input type="text" id="firstName" role="" /&gt;
-                    &lt;/form&gt;
-                </pre>
+                    &lt;/form&gt;</pre>
                 <p>The form role contains form elements which can be submitted by user.</p>
             </section>
             <section class="bit">
@@ -228,8 +219,7 @@
                             &lt;p class="bit__content"&gt;
                                 Bears are pretty awesome, guys.
                         &lt;/section&gt;
-                    &lt;/main&gt;
-                </pre>
+                    &lt;/main&gt;</pre>
                 <p>The main role is for the main content of the page. Therer should only be one main landmark per page.</p>
             </section>
             <section class="bit">
@@ -241,8 +231,7 @@
                     &lt;main class="primaryContent" role="search"&gt;
                         &lt;label for="search"&gt;Search Here&lt;/label&gt;
                         &lt;input type="text" id="search" role="" /&gt;
-                    &lt;/form&gt;
-                </pre>
+                    &lt;/form&gt;</pre>
                 <p>Reserved for the search tool.</p>
             </section>
             <section class="bit">
@@ -252,9 +241,7 @@
                 </header>
                 <pre class="code">
                     &lt;div class="primaryContent" role="application"&gt;
-
-                    &lt;/div&gt;
-                </pre>
+                    &lt;/div&gt;</pre>
                 <p>Represents a unique software unit. Keyboard commands handled by application rather than browser itself. Use sparingly if at all.</p>
             </section>
             <section class="bit">
@@ -266,8 +253,7 @@
                     &lt;ul role="presentation"&gt;
                         &lt;li&gt;Item 1&lt;/li&gt;
                         &lt;li&gt;Item 2&lt;/li&gt;
-                    &lt;/ul&gt;
-                </pre>
+                    &lt;/ul&gt;</pre>
                 <p>This removes any semantic meaning from the element to which it is assigned. This also applies to elements' children that are required (lists or tables) the child items will inherit the role from the parent.</p>
             </section>
             <footer class="main__footer">
@@ -291,8 +277,7 @@
                         &lt;div class="controls"&gt;
                            &lt;button aria-label="Close" onclick="myAction.close()"&gt;X&lt;/button&gt;
                         &lt;/div&gt;
-                    &lt;/div&gt;
-               </pre>
+                    &lt;/div&gt;</pre>
                <p>Because there is nothing in the button text that actually says it closes the page, using a label there is a good practice.
                 </p>
             </section>
@@ -310,9 +295,9 @@
                     &lt;/label&gt;
                     &lt;span id="error-message" style="display:none; aria-hidden="true"/&gt;
                         OH SNAP YOU GOTS ERR-OHRS.
-                    &lt;/span&gt;
-               </pre>
-               <p>This code represents a hidden field used as the label for an input. Note it is still referenced even though it is set to 'true' and is hidden via css. Boom.
+                    &lt;/span&gt;</pre>
+               
+               <p>This code represents a hidden field used as the label for an input. Note it is still referenced even though it is aria-hidden='true' and is display:none; via css. Boom.
                 </p>
                 <pre class="code">
                     &lt;div id="action" class="action"&gt;
@@ -324,8 +309,8 @@
                             &lt;div id="name"&gt;Phone&lt;/div&gt;
                             &lt;input type="text" aria-labelledby="phone action"/&gt;
                         &lt;/div&gt;
-                    &lt;/div&gt;
-               </pre>
+                    &lt;/div&gt;</pre>
+               
                <p>This code represents input fields being labelled by both inidividual labels and a group label on an ancestor.
                 </p>
             </section>
@@ -342,8 +327,7 @@
                         &lt;div class="alert"&gt;
                             This message is visible!!
                         &lt;/div&gt;
-                    &lt;/div&gt;
-               </pre>
+                    &lt;/div&gt;</pre>
                <p> Aria hidden!
                 </p>
             </section>
@@ -362,8 +346,7 @@
                                 At 5:30 EST, severe weather will be incoming!
                             &lt;/section&gt;
                         &lt;/div&gt;
-                    &lt;/div&gt;
-               </pre>
+                    &lt;/div&gt;</pre>
                <p> Aria Controls info.
                 </p>
            </section>
