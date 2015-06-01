@@ -25,17 +25,31 @@
     <main class="l-primary" role="main">
         <section class="banner" role="banner">
             <header class="main__header main--large">
-                <h1>ARIA Accessability Guide</h1>
+                <h1>Accessible Rich Internet Application (ARIA) Guide</h1>
             </header>
             <p>This is for my benefit initially, as I learn and adapt I will share.</p>
         </section>
     	<article class="main">
-            <header class="main__header" id="GeneralPractices">
-                <h1>ARIA General Best Practices</h1>
+            <header class="main__header" id="GeneralGuidelines">
+                <h1>ARIA General Guidelines & Rules</h1>
             </header>
             <section class="bit">
-                <header class="bit__header">
-                    <h1>ARIA General Rules</h1>
+                <header class="bit__header" id="GeneralRules">
+                    <h1>ARIA General Use Rules</h1>
+                </header>
+                <ul>
+                    <li>If you can use native HTML elements or attributes with the semantics and behavior you need built in, do that instead of repurposing an element and adding an ARIA role, state or property.</li>
+                    <li>Do not change native semantics unless you really have to.</li>
+                    <li>All ARIA controls must be useable by keyboard.</li>
+                    <li>Do not use "role='presentation'" or "aria-hidden='true'" on any visible focusable element.</li>
+                    <li>All interactive elements must have an accessible name.</li>
+                    <li></li>
+                </ul>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header" id="BestPractices">
+                    <h1>ARIA Hints &amp; Best Practices</h1>
                 </header>
                 <ul>
                     <li>Do not disable native browser focus styles</li>
@@ -243,13 +257,26 @@
                 </pre>
                 <p>Represents a unique software unit. Keyboard commands handled by application rather than browser itself. Use sparingly if at all.</p>
             </section>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>presentation</h1>
+                    <p class="bit__summary"></p>
+                </header>
+                <pre class="code">
+                    &lt;ul role="presentation"&gt;
+                        &lt;li&gt;Item 1&lt;/li&gt;
+                        &lt;li&gt;Item 2&lt;/li&gt;
+                    &lt;/ul&gt;
+                </pre>
+                <p>This removes any semantic meaning from the element to which it is assigned. This also applies to elements' children that are required (lists or tables) the child items will inherit the role from the parent.</p>
+            </section>
             <footer class="main__footer">
                 <p>Footer inside main layout content</p>
             </footer>
         </article>
         
         <article class="main">
-            <header class="main__header" id="Attributes">
+            <header class="main__header" id="GlobalProperties">
                 <h1>Global ARIA States/Properties</h1>
             </header>
             <p>These can be set on any element regardless of whether a role is applied or not. These are supported by all roles and base markup elements.</p>
@@ -275,8 +302,20 @@
                 </header>
                 <p>ID's the element that is labelling the current element. Same purpose as aria-label; to give the user a recognizable object name. Note that there are 3 'l's total in that, not 2. </p>
                 <p>If the text is visible on screen, use aria-labelledby. Screen readers give precedence to aria-lablledby over aria-label.</p>
+                <p>By default, assistive technologies do not relay hidden information (stuff hidden by css display none or visibility hidden) but that can be overridden by the author if they put aria-labelledby or aria-describedby on something that is visually hidden.</p>
                 <pre class="code">
-                    &lt;div id="action" class="actions"&gt;
+                    &lt;label&gt;
+                        Name
+                        &lt;input type="text" aria-labelledby="error-message"&gt;
+                    &lt;/label&gt;
+                    &lt;span id="error-message" style="display:none; aria-hidden="true"/&gt;
+                        OH SNAP YOU GOTS ERR-OHRS.
+                    &lt;/span&gt;
+               </pre>
+               <p>This code represents a hidden field used as the label for an input. Note it is still referenced even though it is set to 'true' and is hidden via css. Boom.
+                </p>
+                <pre class="code">
+                    &lt;div id="action" class="action"&gt;
                         &lt;div&gt;
                             &lt;div id="name"&gt;Name&lt;/div&gt;
                             &lt;input type="text" aria-labelledby="name action"/&gt;
@@ -296,14 +335,16 @@
                 </header>
                 <p>This indicates that this element and all its descendants are not visible or perceivable to any user.</p>
                 <p>If that element is only visible after a user action, the attribute has to be set to 'true'. When that element is visible, the attribute must be changed from 'true' to 'false' in order to indicate the state change. This must be set regardless of the mechanic used to hide/show the item. This allows hidden elements to be skipped by assistive technologies/user agents. CSS attribute selector can be used to hide a hidden element, while JS would only be used to update the value of the attribute on click.</p>
-                <p class="note">Both CSS declarations "visibility: hidden;" and "display: none;" hide the content from assistive technologies that access the DOM through rendering engine. </p>
+                <p>You can use this to hide visibly rendered content from assistive technologies ONLY if the act of hiding the content is intended to improve the experience for assistive technology users by removing redundant or extraneous content. If you do that, you must ensure that identical or equivalent meaning/functionality is exposed to assistive technology. This is a real liability though, so don't do this unless there is no other alternative.</p>
+                <p class="note">Both CSS declarations "visibility: hidden;" and "display: none;" hide the content from assistive technologies that access the DOM through rendering engine.</p>
                 <pre class="code">
-                    &lt;div role="banner"&gt;
+                    &lt;div aria-hidden="false"&gt;
                         &lt;div class="alert"&gt;
+                            This message is visible!!
                         &lt;/div&gt;
                     &lt;/div&gt;
                </pre>
-               <p> Aria hidden best practices go hee!
+               <p> Aria hidden!
                 </p>
             </section>
             <section class="bit">
