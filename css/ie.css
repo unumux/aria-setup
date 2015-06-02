@@ -357,21 +357,36 @@ td, th {
   font-size: .9em;
   color: rgba(0, 0, 0, 0.5); }
 
+.done {
+  text-decoration: line-through; }
+
+.warn {
+  background-color: rgba(255, 50, 100, 0.5);
+  color: rgba(0, 0, 0, 0.8); }
+
+html {
+  background-color: rgba(65, 0, 255, 0.15); }
+
 body, html {
-  background-color: rgba(65, 0, 255, 0.15);
-  font-size: 100%; }
+  font-size: 100%;
+  padding: 0;
+  margin: 0; }
 
 .l-primary {
   margin: 0;
-  padding: 1em; }
+  padding: 0; }
 
 .main__header {
-  margin: 0; }
+  margin: 0;
+  padding: 0 1em; }
+.main__summary {
+  padding: 0 1em; }
 .main--large {
   color: rgba(255, 255, 255, 0.8);
   font-size: 150%; }
 .main__footer {
-  background-color: rgba(255, 255, 255, 0.2); }
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 1em; }
 
 .secondary {
   background-color: #cecece; }
@@ -408,6 +423,7 @@ nav {
       background-color: rgba(0, 0, 0, 0.4); }
 
 .bit {
+  padding: 1em;
   border-top: 1px solid rgba(0, 0, 0, 0.5); }
   .bit__header {
     font-size: .75em;

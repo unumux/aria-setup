@@ -9,13 +9,17 @@
 // where appropriate.
 
 
-body,
 html {
 	background-color: rgba(65, 0, 255, .15);
+}
+body,
+html {
 	font-size: 100%;
+	padding: 0;
+	margin: 0;
 }
 
 .l-primary {
 	margin: 0;
-	padding: 1em;
+	padding: 0;
 }

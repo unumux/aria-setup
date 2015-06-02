@@ -1,0 +1,2 @@
+/*! aria-setup 2015-06-02 */
+$("html").click(function(){var a=Math.round(255*Math.random()),b=Math.round(255*Math.random()),c=Math.round(255*Math.random()),d=Math.random();$("html").css("background-color","rgba("+a+", "+b+", "+c+", "+d+")")});
