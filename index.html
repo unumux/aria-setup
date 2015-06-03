@@ -56,7 +56,9 @@
                     <li>Break your page into percievable block areas which contain semantically associated information called "regions"
                         <ul>
                             <li>assign landmark roles to your regions.</li>
+                            <li>each region should have a percievable header used to label the region.</li>
                             <li>assign semantic navigation landmarks to the regions.</li>
+                            <li></li>
                         </ul>
                     </li>
                     <li>Be careful when you chose to auto-focus from field to field. In the event you choose to do that you must still give user firm control over when to use it b/c they might not be done with a field when the programming thinks they should be and it is a user frustration.</li>
@@ -249,6 +251,7 @@
                     &lt;div class="support" role="region"&gt;
                     &lt;/div&gt;</pre>
                 <p>NOTE THIS IS NOT AN ARIA LANDMARK</p>
+                <p>This is also a generic landmark. It should only be used when a more specific role is not available. Assistive technologies should treat this role as a complimentary region.</p>
             </section>
             <section class="bit warn">
                 <header class="bit__header">
@@ -290,7 +293,7 @@
                 <pre class="code">
                     &lt;div class="primaryContent" role="application"&gt;
                     &lt;/div&gt;</pre>
-                <p>Represents a unique software unit. Keyboard commands handled by application rather than browser itself. Use sparingly if at all.</p>
+                <p>Represents a unique software unit. Keyboard commands handled by application rather than browser itself. Use sparingly if at all. The times it is necessary to be used will be few and far between for the most part.</p>
             </section>
             <section class="bit">
                 <header class="bit__header">
@@ -456,7 +459,7 @@
                 <p>Footer i</p>
             </footer>
         </article>
-     <article class="main">
+        <article class="main">
             <header class="main__header">
                 <h1>Full list of global props to be explained above</h1>
             </header>
