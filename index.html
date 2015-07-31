@@ -53,7 +53,7 @@
                     <li>Add skip links at the top of the page in order to guide the user over areas they would like to skip</li>
                     <li>Don't break heading order.</li>
                     <li>Hide content when it isn't in focus. Use 'aria-hidden="true"' on wrapper div, everything in that div is hidden until that property is changed</li>
-                    <li>Break your page into percievable block areas which contain semantically associated information called "regions"
+                    <li>Break your page into percievable block areas which contain semantically associated information called "regions":
                         <ul>
                             <li>assign landmark roles to your regions.</li>
                             <li>each region should have a percievable header used to label the region.</li>
@@ -64,6 +64,7 @@
                     <li>Be careful when you chose to auto-focus from field to field. In the event you choose to do that you must still give user firm control over when to use it b/c they might not be done with a field when the programming thinks they should be and it is a user frustration.</li>
                     <li>Alert your user when a max-width has been reached in an input field.</li>
                     <li>Do not set anything to auto-submit.</li>
+                    <li>Ensure color is not the primary means of communication.</li>
                 </ul>
             </section>
         </article>
@@ -94,7 +95,8 @@
                     <li>Disabled controls should not be in the tab order.</li>
                     <li>Dont use :focus or attribute selectors to style the focus. IE issue. Instead, set the style in an onfocus event handler.</li>
                     <li><span class="warn">Always draw focus for tabindex="-1" or any items that recieve focus IE will not always draw focus on items that are getting focus programatically.</span></li>
-                        <li>Prevent used key events from performing browser functions whilst in widget. For instance, if the arrow key is pressed, prevent it from scrolling the page with some JS code.</li>
+                    <li>Prevent used key events from performing browser functions whilst in widget. For instance, if the arrow key is pressed, prevent it from scrolling the page with some JS code.</li>
+                    <li>If you need to have tooltips in your code (things that on hover pop up with additional info) there must be a way to activate it or access it via keyboard and with assitive technology. Use HTML title attribute as often as possible, as assistive technology will read/render it for tooltips. Currently you can also use JS if you need to to show/hide content based on focus.</li>
                 </ul>
                 <pre class="code">
                     &lt;div class="myWidget"&gt;
@@ -106,27 +108,8 @@
                     &lt;/div&gt;</pre>
                <p>Roving focus example above. If you tab away and then tab back to the widget, same last active descendant becomes active again. Requires some JS to work in conjunction with the 
                 </p>
-                <p>If you need to have tooltips in your code (things that on hover pop up with additional info) there must be a way to activate it or access it via keyboard and with assitive technology. HTML title attribute should be used as often as possible, as assistive technology will read/render it for tooltips. Currently you can also use JS if you need to to show/hide content based on focus.</p>
             </section>
-            <section class="bit">
-                <header class="bit__header">
-                    <h1>Aria-Controls</h1>
-                </header>
-                <p>Boolean accepts true or false. It can fail, so if it doesnt work right remove the attribute altogether. Dont set it if you dont need it.</p>
-                <pre class="code">
-                    &lt;div role="banner"&gt;
-                        &lt;div class="alert"&gt;
-                            &lt;h1 class="alert__heading"&gt;
-                               Warning!
-                            &lt;/h1&gt;
-                            &lt;section class="alert__message"&gt;
-                                At 5:30 EST, severe weather will be incoming!
-                            &lt;/section&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;</pre>
-               <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
-                </p>
-           </section>
+            
            <footer class="main__footer">
                 <p>Footer inside main layout content</p>
             </footer>
@@ -154,7 +137,7 @@
                             &lt;/section&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;</pre>
-               <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content.
+               <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content. Header elements are not considered landmarks when they are contained within a section or article element.
                 </p>
            </section>
             <section class="bit">
@@ -187,7 +170,7 @@
                             Bears live a long time. They can live without food or water for many months, subsisting only on their own stores of fat and cholesterol. Oddly enough, even in hibernation a bear can rebuild bones and avoid bone loss.
                         &lt;/p&gt;
                     &lt;/section&gt;</pre>
-                <p>Complementary roles are the equvilant of using an aside. Think of them as tertiary content just the same as you add roles to your code.</p>
+                <p>Complementary roles are the equvilant of using an aside. Think of them as tertiary content just the same as an aside as you add roles to your code.</p>
             </section>
             <section class="bit">
                 <header class="bit__header">
@@ -201,7 +184,7 @@
                             &copy; copyright is awesome.
                         &lt;/p&gt;
                     &lt;/footer&gt;</pre>
-                <p>The contentinfo role is usually for the footer of the page. Again, one per page.</p>
+                <p>The contentinfo role is usually for the footer of the page. Again, one per page. Footer elements are not considered landmarks when they are contained within a section or article element.</p>
             </section>
             <section class="bit">
                 <header class="bit__header">
@@ -213,7 +196,7 @@
                         &lt;label for="firstName" class="footer__title"&gt;Bears lifespan&lt;/label&gt;
                         &lt;input type="text" id="firstName" role="" /&gt;
                     &lt;/form&gt;</pre>
-                <p>The form role contains form elements which can be submitted by user.</p>
+                <p>The form role contains form elements which can be submitted by user. Please note that this is considered a navigable landmark only when labelled with aria-label or aria-labelledby.</p>
             </section>
             <section class="bit">
                 <header class="bit__header">
@@ -251,7 +234,7 @@
                     &lt;div class="support" role="region"&gt;
                     &lt;/div&gt;</pre>
                 <p>NOTE THIS IS NOT AN ARIA LANDMARK</p>
-                <p>This is also a generic landmark. It should only be used when a more specific role is not available. Assistive technologies should treat this role as a complimentary region.</p>
+                <p>This is also a generic landmark. It should only be used when a more specific role is not available. Assistive technologies should treat this role as a complimentary region. Please note that this is considered a navigable landmark only when labelled with aria-label or aria-labelledby.</p>
             </section>
             <section class="bit warn">
                 <header class="bit__header">
@@ -293,7 +276,7 @@
                 <pre class="code">
                     &lt;div class="primaryContent" role="application"&gt;
                     &lt;/div&gt;</pre>
-                <p>Represents a unique software unit. Keyboard commands handled by application rather than browser itself. Use sparingly if at all. The times it is necessary to be used will be few and far between for the most part.</p>
+                <p>Represents a unique software unit. Keyboard commands handled by application rather than browser itself. Use sparingly if at all. The times it is necessary to be used will be few and far between for the most part. Please note that this is considered a navigable landmark only when labelled with aria-label or aria-labelledby.</p>
             </section>
             <section class="bit">
                 <header class="bit__header">
@@ -322,6 +305,97 @@
                 <h1>Global ARIA States/Properties</h1>
             </header>
             <p class="main__summary">These can be set on any element regardless of whether a role is applied or not. These are supported by all roles and base markup elements.</p>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-atomic</h1>
+                </header>
+                <p>This indicates wether or not AT will present all or parts of the changed region based on change notifications from the 'aria-relevant' attribute.</p>
+                <p>The default value is 'false' if it is not set.</p>
+                <p>look for a real-world example, buddy list friend removal vs. hiding news stories to show more is not really super clear to me</p>
+                <pre class="code hidden">
+                    &lt;div role="banner"&gt;
+                        &lt;div class="alert"&gt;
+                            &lt;h1 class="alert__heading"&gt;
+                               Warning!
+                            &lt;/h1&gt;
+                            &lt;section class="alert__message"&gt;
+                                At 5:30 EST, severe weather will be incoming!
+                            &lt;/section&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                </pre>
+            </section>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-busy <span class="emphasis__state">(state)</span></h1>
+                </header>
+                <p>This is a Live Region attribute.
+                <p>This indicates wether or not an element and its subtree are being updated.</p>
+                <p>The default value is 'false' if it is not set.</p>
+                <p>Example, an author could put aria-busy to true on a page in order to show that it has not been completely ready.</p>
+                <pre class="code hidden">
+                    &lt;div role="banner"&gt;
+                        &lt;div class="alert"&gt;
+                            &lt;h1 class="alert__heading"&gt;
+                               Warning!
+                            &lt;/h1&gt;
+                            &lt;section class="alert__message"&gt;
+                                At 5:30 EST, severe weather will be incoming!
+                            &lt;/section&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                </pre>
+            </section>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-controls <span class="emphasis__property">(property)</span></h1>
+                </header>
+                <p>This identifies the element(s) whose contents or presence is controlled by the current element.</p>
+                <p>For instance, a checkbox group might be responsible for content displaying in a different area of the site, or a tab controlling the display of its associated panel.</p>
+                <pre class="code">
+                    &lt;div&gt;
+                        &lt;button aria-expanded="false" aria-contols="tab1"/&gt;
+                    &lt;/div&gt;
+                    &lt;section id="tab1" aria-hidden="true"&gt;
+                        &lt;p&gt;Stop that rhyming now, I mean it!&lt;/p&gt;
+                        &lt;p&gt;Anybody want a peanut?&lt;/p&gt;
+                    &lt;/section&gt;
+                    </pre>
+               <p> This will work with a JS function that just toggles the aria-hidden and expanded states. Boom!
+                </p>
+            </section>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-describedby <span class="emphasis__property">(property)</span></h1>
+                </header>
+                <p>This identifies the element(s) that describe the object. Similar to aria-labelledby, but described is built to be more verbose. Should be a complete description.</p>
+                <pre class="code hidden">
+                    &lt;div&gt;
+                        &lt;button /&gt;
+                    &lt;/div&gt;
+                    &lt;section &gt;
+                        &lt;p&gt;Are those rocks up ahead?&lt;/p&gt;
+                        &lt;p&gt;If they are, we all be dead!&lt;/p&gt;
+                    &lt;/section&gt;
+                    </pre>
+            </section>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-disabled <span class="emphasis__state">(state)</span></h1>
+                </header>
+                <p>This lets AT know that the element is there but not editable or operable. A radio group might have all irrelevant options disabled, and have no focus in the tab order b/c of it. On top of using this attribute, the physical appreance should change as well (option should be greyed out etc).</p>
+                <pre class="code">
+                    &lt;div&gt;
+                        &lt;button aria-expanded="false" aria-contols="tab1"/&gt;
+                    &lt;/div&gt;
+                    &lt;section id="tab1" aria-hidden="true"&gt;
+                        &lt;p&gt;Stop that rhyming now, I mean it!&lt;/p&gt;
+                        &lt;p&gt;Anybody want a peanut?&lt;/p&gt;
+                    &lt;/section&gt;
+                    </pre>
+                <p> This will work with a JS function that just toggles the aria-hidden and expanded states. Boom!
+                </p>
+            </section>
              <section class="bit">
                 <header class="bit__header">
                     <h1>aria-label</h1>
@@ -341,6 +415,7 @@
                 <header class="bit__header">
                     <h1>aria-labelledby</h1>
                 </header>
+                <p>This represents a 'relationship' attribute, meaning it defines association between elements.</p>
                 <p>ID's the element that is labelling the current element. Same purpose as aria-label; to give the user a recognizable object name. Note that there are 3 'l's total in that, not 2. </p>
                 <p>If the text is visible on screen, use aria-labelledby. Screen readers give precedence to aria-lablledby over aria-label.</p>
                 <p>By default, assistive technologies do not relay hidden information (stuff hidden by css display none or visibility hidden) but that can be overridden by the author if they put aria-labelledby or aria-describedby on something that is visually hidden.</p>
@@ -362,7 +437,7 @@
                             &lt;input type="text" aria-labelledby="name action"/&gt;
                         &lt;/div&gt;
                         &lt;div&gt;
-                            &lt;div id="name"&gt;Phone&lt;/div&gt;
+                            &lt;div id="phone"&gt;Phone&lt;/div&gt;
                             &lt;input type="text" aria-labelledby="phone action"/&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;</pre>
@@ -372,7 +447,7 @@
             </section>
             <section class="bit">
                 <header class="bit__header">
-                    <h1>aria-hidden (state)</h1>
+                    <h1>aria-hidden <span class="emphasis__state">(state)</span></h1>
                 </header>
                 <p>This indicates that this element and all its descendants are not visible or perceivable to any user.</p>
                 <p>If that element is only visible after a user action, the attribute has to be set to 'true'. When that element is visible, the attribute must be changed from 'true' to 'false' in order to indicate the state change. This must be set regardless of the mechanic used to hide/show the item. This allows hidden elements to be skipped by assistive technologies/user agents. CSS attribute selector can be used to hide a hidden element, while JS would only be used to update the value of the attribute on click.</p>
@@ -387,25 +462,7 @@
                <p> Aria hidden!
                 </p>
             </section>
-            <section class="bit">
-                <header class="bit__header">
-                    <h1>aria-controls</h1>
-                </header>
-                <p>Boolean accepts true or false. It can fail, so if it doesnt work right remove the attribute altogether. Dont set it if you dont need it.</p>
-                <pre class="code">
-                    &lt;div role="banner"&gt;
-                        &lt;div class="alert"&gt;
-                            &lt;h1 class="alert__heading"&gt;
-                               Warning!
-                            &lt;/h1&gt;
-                            &lt;section class="alert__message"&gt;
-                                At 5:30 EST, severe weather will be incoming!
-                            &lt;/section&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;</pre>
-               <p> Aria Controls info.
-                </p>
-           </section>
+
            <footer class="main__footer">
                 <p>Footer inside main layout content</p>
             </footer>
@@ -417,7 +474,7 @@
 
             <section class="bit">
                 <header class="bit__header">
-                    <h1>aria-invalid (state)</h1>
+                    <h1>aria-invalid <span class="emphasis__state">(state)</span></h1>
                 </header>
                 <p>Indicates the entered value does not conform to the expected format</p>
                 <p>if the value is out of range, the attribute should be set to 'true'. When true, help should be given in the form of suggestions from the author about correcting known mistakes (missing # or something etc)</p>
@@ -437,7 +494,7 @@
            </section>
             <section class="bit">
                 <header class="bit__header">
-                    <h1>aria-required (state)</h1>
+                    <h1>aria-required <span class="emphasis__state">(state)</span></h1>
                 </header>
                 <p>Indicates a required field. Can be used in conjunction with aria-invalid.</p>
                 <p>When user attempts to submit wrong data on a field with this attribute, the author can use the aria-invalid attribute to signal an error. However this must run AFTER a user has clicked 'submit' on a widget, b/c the user has not actually entered data up to that point.</p>
@@ -466,10 +523,10 @@
             <p>These can be set on any element regardless of whether a role is applied or not. These are supported by all roles and base markup elements.</p>
             <p>These below need explanations and examples. Work in progress.</p>
             <ul>
-                <li>aria-atomic</li>
-                <li>aria-busy (state)</li>
-                <li>aria-controls</li>
-                <li>aria-describedby</li>
+                <li class="done">aria-atomic</li>
+                <li class="done">aria-busy (state)</li>
+                <li class="done">aria-controls</li>
+                <li class="done">aria-describedby</li>
                 <li>aria-disabled (state)</li>
                 <li>aria-dropeffect</li>
                 <li>aria-flowto</li>
@@ -483,7 +540,7 @@
                 <li>aria-owns</li>
                 <li>aria-relevant</li>
             </ul>
-            <p>These are specific widget attributes specific to common user interface elements which recieve user input and process actions. These are used to support widget roles.</p>
+            <p>These are widget attributes specific to common user interface elements which recieve user input and process actions. These are used to support widget roles.</p>
             <p>This also will need work and examples and code.</p>
             <ul>
                 <li>aria-autocomplete</li>
@@ -509,25 +566,6 @@
                 <li>aria-valuetext</li>
             </ul>
           
-            <section class="bit">
-                <header class="bit__header">
-                    <h1>aria-atomic</h1>
-                </header>
-                <p>Research will go up in here and examples below</p>
-                <pre class="code">
-                    &lt;div role="banner"&gt;
-                        &lt;div class="alert"&gt;
-                            &lt;h1 class="alert__heading"&gt;
-                               Warning!
-                            &lt;/h1&gt;
-                            &lt;section class="alert__message"&gt;
-                                At 5:30 EST, severe weather will be incoming!
-                            &lt;/section&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-               </pre>
-               <p>Are</p>
-           </section>
            <footer class="main__footer">
                 <p>Footer inside main layout content</p>
             </footer>

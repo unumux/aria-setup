@@ -6,3 +6,14 @@ $("html").click(function () {
     var a = Math.random();
     $("html").css("background-color", "rgba(" + red + ", " + blue + ", " + green + ", " + a + ")");
 });
+
+//function showType(type) {
+	$("span").click(function () {
+		console.log(this.innerText);
+
+		if($("span").innerText !== this.InnerText) {
+			alert("not the same!");
+			$("span").css("display", "none");
+		}
+	});
+//}
