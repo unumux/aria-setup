@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: #dedede;
+    color: #111;
+}
+
+@import "scss/base/index";
+@import "scss/layout/index";
+@import "scss/modules/index";
+
+@import "scss/utilities/index";

@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "name": "aria-setup",
+  "dependencies": {
+    "colonial-branding": "unumux/colonial-branding#~3.1.0"
+  }
+}

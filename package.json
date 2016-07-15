@@ -1,46 +1,12 @@
 {
-  "name": "aria-setup",
-  "title": "ARIA Best Practices Notes",
-  "description": "An ARIA starter toolkit based on W3C and ARIA",
-  "author": {
-    "name": "Daniel Bailey",
-    "url": "https://github.com/dbay24"
-  },
-  "version": "0.1.0",
-  "license": {
-    "type": "MIT",
-    "url": "http://opensource.org/licenses/MIT"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/dbay24/aria-setup.git"
-  },
-  "homepage": "https://github.com/dbay24/aria-setup/",
-  "keywords": [
-    "sass",
-    "scss",
-    "doc",
-    "boilerplate",
-    "starter",
-    "grunt",
-    "smacss"
-  ],
-  "main": "Gruntfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "bugs": {
-    "url": "https://github.com/dbay24/aria-setup/issues"
-  },
+  "private": true,
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-browser-sync": "^1.9.2",
-    "grunt-contrib-concat": "~0.4.0",
-    "grunt-contrib-imagemin": "~0.7.0",
-    "grunt-contrib-sass": "^0.7.3",
-    "grunt-contrib-uglify": "~0.4.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-sass": "^0.18.1",
-    "grunt-sassdoc": "^0.4.0"
+    "@unumux/ux-build-tools": "^3.4.0"
+  },
+  "scripts": {
+    "start": "gulp --gulpfile=node_modules/@unumux/ux-build-tools/index.js --cwd=."
+  },
+  "dependencies": {
+    "jquery": "^3.1.0"
   }
 }

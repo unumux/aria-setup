@@ -5,9 +5,6 @@
 #NPM Directory
 node_modules
 
-#Build Directory
-dist
-
 #Bower Directory
 bower_components
 
@@ -38,21 +35,6 @@ nbproject
 *.sublime-project
 *.sublime-workspace
 
-# Dreamweaver added files
-_notes
-dwsync.xml
-
-# Komodo
-*.komodoproject
-.komodotools
-
-# Folders to ignore
-.hg
-.svn
-.CVS
-intermediate
-publish
-.idea
 
 # build script local files
 build/buildinfo.properties

@@ -4,14 +4,16 @@
 	&__header {
 		margin: 0;
 		padding: 0 1em;
+		&--large {
+			text-align: center;
+			color: rgba(255, 255, 255, .8);
+			font-size: 150%;
+		}
 	}
 	&__summary {
 		padding :0 1em;
 	}
-	&--large {
-		color: rgba(255, 255, 255, .8);
-		font-size: 150%;
-	}
+	
 	&__footer {
 		background-color: rgba(255, 255, 255, .2);
 		padding: 1em;
