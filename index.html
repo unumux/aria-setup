@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ARIA Best Practices Practice</title>
+    <title>ARIA Best Practices</title>
     <link rel="stylesheet" href="styles/site.min.css">
 </head>
 <body>   
@@ -13,10 +13,35 @@
             </header>
             <p class="main__summary">This is for my benefit initially, as I learn and adapt I will share.</p>
         </section>
+
     	<article class="main">
             <header class="main__header" id="GeneralGuidelines">
                 <h1>ARIA General Guidelines & Rules</h1>
             </header>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>Basic ARIA Definitions</h1>
+                </header>
+                <ul>
+                    <li>
+                        <b>Roles:</b> <code>Roles</code> describe widgets that aren't otherwise available in HTML 4, such as sliders and tabs. The role of an element should not change. Instead, remove the original element and replace it with an element with the new role 
+                    </li>
+                    <li>
+                        <b>Properties:</b>  <code>Properties</code> describe characteristics of these widgets, such as if they are draggable, have a required element, or have a popup associated with them. `Property` values may change but are less likely to change than state values, this is not a rule
+                        Examples of properties:  <code>aria-haspopup,</code>  <code>aria-controls,</code>  <code>aria-autocomplete</code> 
+                    </li>
+                    <li>
+                        <b>States:</b>  <code>States</code> describe the current interaction state of an element, informing the assistive technology if it is busy, disabled, selected, or hidden. `State` values change frequently based on user interaction
+                        Examples of states:  <code>aria-checked,</code> <code>aria-disabled,</code>  <code>aria-hidden,</code> <code>aria-grabbed,</code>  <code>aria-required</code> 
+                    </li>
+                    <li>
+                        <b>Owned Elements:</b> An 'owned element' is any DOM descendant of the element, any element specified as a child via <code>aria-owns</code>, or any DOM descendant of the owned child.
+                    </li>
+                    <li> 
+                        <a href="https://www.w3.org/TR/wai-aria/states_and_properties">Full list of ARIA states and properties</a>
+                    </li>
+                </ul>
+            </section>
             <section class="bit">
                 <header class="bit__header" id="GeneralRules">
                     <h1>ARIA General Use Rules</h1>
@@ -25,7 +50,7 @@
                     <li>If you can use native HTML elements or attributes with the semantics and behavior you need built in, do that instead of repurposing an element and adding an ARIA role, state or property.</li>
                     <li>Do not change native semantics unless you really have to.</li>
                     <li>All ARIA controls must be useable by keyboard.</li>
-                    <li>Do not use "role='presentation'" or "aria-hidden='true'" on any visible focusable element.</li>
+                    <li>Do not use <code>role="presentation"</code> or <code>aria-hidden="true"</code> on any visible focusable element.</li>
                     <li>All interactive elements must have an accessible name.</li>
                 </ul>
             </section>
@@ -38,20 +63,19 @@
                     <li>Do not disable native browser focus styles</li>
                     <li>Keep link underlines</li>
                     <li>Add skip links at the top of the page in order to guide the user over areas they would like to skip</li>
-                    <li>Don't break heading order.</li>
-                    <li>Hide content when it isn't in focus. Use 'aria-hidden="true"' on wrapper div, everything in that div is hidden until that property is changed</li>
+                    <li>Do not break heading order</li>
+                    <li>Hide content when it isn't in focus. Use <code>aria-hidden="true"</code> on wrapper div, everything in that div is hidden until that property is changed</li>
                     <li>Break your page into percievable block areas which contain semantically associated information called "regions":
                         <ul>
-                            <li>assign landmark roles to your regions.</li>
-                            <li>each region should have a percievable header used to label the region.</li>
-                            <li>assign semantic navigation landmarks to the regions.</li>
-                            <li></li>
+                            <li>Assign landmark roles to your regions</li>
+                            <li>Each region should have a percievable header used to label the region</li>
+                            <li>Assign semantic navigation landmarks to the region.</li>
                         </ul>
                     </li>
-                    <li>Be careful when you chose to auto-focus from field to field. In the event you choose to do that you must still give user firm control over when to use it b/c they might not be done with a field when the programming thinks they should be and it is a user frustration.</li>
-                    <li>Alert your user when a max-width has been reached in an input field.</li>
-                    <li>Do not set anything to auto-submit.</li>
-                    <li>Ensure color is not the primary means of communication.</li>
+                    <li>Be careful when you chose to auto-focus from field to field. In the event you choose to do that you must still give user firm control over when to use it because they may not be done with a field and it is a user frustration</li>
+                    <li>Alert your user when a max-width has been reached in an input field</li>
+                    <li>Do not set anything to auto-submit</li>
+                    <li>Ensure color is not the primary means of communication</li>
                 </ul>
             </section>
         </article>
@@ -60,19 +84,19 @@
             <header class="main__header" id="KeyboardRequirements">
                 <h1>ARIA Keyboard Requirements</h1>
             </header>
-            <p class="main__summary">This is a requirement, not just a best practice section. We need to begin doing this.</p>
+            <p class="main__summary">This is a requirement, not just a best practice section.</p>
            <section class="bit">
                 <header class="bit__header">
                     <h1>Keyboard Bindings/Behaviors</h1>
                 </header>
                 <ul>
-                    <li>We must support users who cannot use a pointing device.</li>
-                    <li>tabindex attribute is applicable to all renderable html elements:
+                    <li>We must support users who cannot use a pointing device</li>
+                    <li><code>tabindex</code> attribute is applicable to all renderable html elements:
                         <ul>
                             <li>'tab' &amp; 'tab + shift' move focus among widgets and standard html controls</li>
-                            <li>element with 'tabindex = 0' is added to tab sequence based on document order.</li>
-                            <li>element with 'tabindex &gt; 0' will be added to tab sequence based on that # value</li>
-                            <li>element with 'tabindex &lt; 0' will not be added to the tab sequence, but are enabled to recieve keyboard focus.</li>
+                            <li>element with <code>tabindex = 0</code> is added to tab sequence based on document order.</li>
+                            <li>element with <code>tabindex &gt; 0</code> will be added to tab sequence based on that # value</li>
+                            <li>element with <code>tabindex &lt; 0</code> will not be added to the tab sequence, but are enabled to recieve keyboard focus.</li>
                         </ul>
                     </li>
                     <li>Once a widget has focus, arrow keys, spacebar, enter or other keys should be able to be used to navigate the options of the widget, change its state, or trigger its function(submit etc)</li>
@@ -96,10 +120,6 @@
                <p>Roving focus example above. If you tab away and then tab back to the widget, same last active descendant becomes active again. Requires some JS to work in conjunction with the 
                 </p>
             </section>
-            
-           <footer class="main__footer">
-                <p>Footer inside main layout content</p>
-            </footer>
         </article>
         
         
@@ -282,9 +302,6 @@
                 <p>Do not use if the element is referenced by another elements ARIA controls or properties.</p>
                 <p>Do not use if a required child element has been explicitly marked with a role (ex role="button") the child will have a role of 'button' and not 'presentation'</p>
             </section>
-            <footer class="main__footer">
-                <p>Footer inside main layout content</p>
-            </footer>
         </article>
         
         <article class="main">
@@ -296,6 +313,7 @@
                 <header class="bit__header">
                     <h1>aria-atomic</h1>
                 </header>
+                <p>This is a Live Region attribute.</p>
                 <p>This indicates wether or not AT will present all or parts of the changed region based on change notifications from the 'aria-relevant' attribute.</p>
                 <p>The default value is 'false' if it is not set.</p>
                 <p>look for a real-world example, buddy list friend removal vs. hiding news stories to show more is not really super clear to me</p>
@@ -383,6 +401,101 @@
                 <p> This will work with a JS function that just toggles the aria-hidden and expanded states. Boom!
                 </p>
             </section>
+
+            <section class="bit">
+               <header class="bit__header">
+                   <h1>aria-dropeffect <span class="emphasis__property">(property)</span></h1>
+               </header>
+               <p>Indicates what functions can be performed when the dragged object is released on the drop target. This allows assistive technologies to convey the possible drag options available to users, including whether a pop-up menu of choices is provided by the application. Typically, drop effect functions can only be provided once an object has been grabbed for a drag operation as the drop effect functions available are dependent on the object being dragged.
+               </p>
+
+               <p>More than one drop effect may be supported for a given element. Therefore, the value of this attribute is a space-delimited set of tokens indicating the possible effects, or none if there is no supported operation. In addition to setting the aria-dropeffect attribute, authors SHOULD show a visual indication of potential drop targets.
+               </p>
+               <pre class="code">&lt;element aria-dropeffect="copy|move|link|execute|popup|none" ... /&gt;</pre>
+           </section>
+
+            <section class="bit">
+               <header class="bit__header">
+                   <h1>aria-flowto <span class="emphasis__property">(property)</span></h1>
+               </header>
+               <p>Identifies the next element (or elements) in an alternate reading order of content which, at the user's discretion, allows assistive technology to override the general default of reading in document source order.
+               </p>
+               <p>When aria-flowto has a single IDREF, it allows assistive technologies to, at the user's request, forego normal document reading order and go to the targeted object. However, when aria-flowto is provided with multiple IDREFS, assistive technologies SHOULD present the referenced elements as path choices.
+               </p>
+               <p>In the case of one or more IDREFS, user agents or assistive technologies SHOULD give the user the option of navigating to any of the targeted elements. The name of the path can be determined by the name of the target element of the aria-flowto attribute. Accessibility APIs can provide named path relationships.
+               </p>
+               <pre class="code">&lt;element aria-flowto="id" ... /&gt;</pre>
+           </section>
+
+            <section class="bit">
+               <header class="bit__header">
+                   <h1>aria-grabbed <span class="emphasis__state">(state)</span></h1>
+               </header>
+               <p>Indicates an element's "grabbed" state in a drag-and-drop operation.
+               </p>
+               <p>
+                When it is set to true it has been selected for dragging, false indicates that the element can be grabbed for a drag-and-drop operation, but is not currently grabbed, and undefined (or no value) indicates the element cannot be grabbed (default).
+               </p>
+               <p>
+                When aria-grabbed is set to true, authors SHOULD update the aria-dropeffect attribute of all potential drop targets. When an element is not grabbed (the value is set to false, undefined, or the attribute is removed), authors SHOULD revert the aria-dropeffect attributes of the associated drop targets to none.
+               </p>
+               <pre class="code">&lt;element aria-grabbed="true|false|undefined" ... /&gt;</pre>
+           </section>
+
+            <section class="bit">
+               <header class="bit__header">
+                   <h1>aria-haspopup <span class="emphasis__property">(property)</span></h1>
+               </header>
+               <p>This is also a Widget Attribute.<p>
+               <p>Indicates that the element has a popup context menu or sub-level menu.
+               </p>
+               <p>This means that activation renders conditional content. Note that ordinary tooltips are not considered popups in this context.
+               </p>
+               <p>A popup is generally presented visually as a group of items that appears to be on top of the main page content.
+               </p>
+               <pre class="code">&lt;element aria-haspopup="true|false" ... /&gt;</pre>
+           </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-hidden <span class="emphasis__state">(state)</span></h1>
+                </header>
+                <p>This is also a Widget Attribute</p>
+                <p>This indicates that this element and all its descendants are not visible or perceivable to any user.</p>
+                <p>If that element is only visible after a user action, the attribute has to be set to 'true'. When that element is visible, the attribute must be changed from 'true' to 'false' in order to indicate the state change. This must be set regardless of the mechanic used to hide/show the item. This allows hidden elements to be skipped by assistive technologies/user agents. CSS attribute selector can be used to hide a hidden element, while JS would only be used to update the value of the attribute on click.</p>
+                <p>You can use this to hide visibly rendered content from assistive technologies ONLY if the act of hiding the content is intended to improve the experience for assistive technology users by removing redundant or extraneous content. If you do that, you must ensure that identical or equivalent meaning/functionality is exposed to assistive technology. This is a real liability though, so don't do this unless there is no other alternative.</p>
+                <p class="note">Both CSS declarations "visibility: hidden;" and "display: none;" hide the content from assistive technologies that access the DOM through rendering engine.</p>
+                <pre class="code">
+                    &lt;div aria-hidden="false"&gt;
+                        &lt;div class="alert"&gt;
+                            This message is visible!!
+                        &lt;/div&gt;
+                    &lt;/div&gt;</pre>
+               <p> Aria hidden!
+                </p>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-invalid <span class="emphasis__state">(state)</span></h1>
+                </header>
+                <p>This is also a Widget Attribute</p>
+                <p>Indicates the entered value does not conform to the expected format</p>
+                <p>if the value is out of range, the attribute should be set to 'true'. When true, help should be given in the form of suggestions from the author about correcting known mistakes (missing # or something etc)</p>
+                <pre class="code">
+                    &lt;div role="banner"&gt;
+                        &lt;div class="alert"&gt;
+                            &lt;h1 class="alert__heading"&gt;
+                               Warning!
+                            &lt;/h1&gt;
+                            &lt;section class="alert__message"&gt;
+                                At 5:30 EST, severe weather will be incoming!
+                            &lt;/section&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+               </pre>
+           </section>
+
              <section class="bit">
                 <header class="bit__header">
                     <h1>aria-label</h1>
@@ -398,6 +511,7 @@
                <p>Because there is nothing in the button text that actually says it closes the page, using a label there is a good practice.
                 </p>
             </section>
+
             <section class="bit">
                 <header class="bit__header">
                     <h1>aria-labelledby</h1>
@@ -432,29 +546,58 @@
                <p>This code represents input fields being labelled by both inidividual labels and a group label on an ancestor.
                 </p>
             </section>
-            <section class="bit">
-                <header class="bit__header">
-                    <h1>aria-hidden <span class="emphasis__state">(state)</span></h1>
-                </header>
-                <p>This indicates that this element and all its descendants are not visible or perceivable to any user.</p>
-                <p>If that element is only visible after a user action, the attribute has to be set to 'true'. When that element is visible, the attribute must be changed from 'true' to 'false' in order to indicate the state change. This must be set regardless of the mechanic used to hide/show the item. This allows hidden elements to be skipped by assistive technologies/user agents. CSS attribute selector can be used to hide a hidden element, while JS would only be used to update the value of the attribute on click.</p>
-                <p>You can use this to hide visibly rendered content from assistive technologies ONLY if the act of hiding the content is intended to improve the experience for assistive technology users by removing redundant or extraneous content. If you do that, you must ensure that identical or equivalent meaning/functionality is exposed to assistive technology. This is a real liability though, so don't do this unless there is no other alternative.</p>
-                <p class="note">Both CSS declarations "visibility: hidden;" and "display: none;" hide the content from assistive technologies that access the DOM through rendering engine.</p>
-                <pre class="code">
-                    &lt;div aria-hidden="false"&gt;
-                        &lt;div class="alert"&gt;
-                            This message is visible!!
-                        &lt;/div&gt;
-                    &lt;/div&gt;</pre>
-               <p> Aria hidden!
-                </p>
-            </section>
 
-           <footer class="main__footer">
-                <p>Footer inside main layout content</p>
-            </footer>
+            <section class="bit">
+               <header class="bit__header">
+                   <h1>aria-live <span class="emphasis__property">(property)</span></h1>
+               </header>
+               <p>This is a Live Region attribute.</p>
+               <p>Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region.
+               </p>
+               <p>The values of this attribute are expressed in degrees of importance. When regions are specified as polite, assistive technologies will notify users of updates but generally do not interrupt the current task, and updates take low priority. When regions are specified as assertive, assistive technologies will immediately notify the user, and could potentially clear the speech queue of previous updates. Please refer to Live Region Properties and How to Use Them ([ARIA-PRACTICES], Section 5.2.1).
+               </p>
+               <p>Politeness levels are essentially an ordering mechanism for updates and serve as a strong suggestion to user agents or assistive technologies. The value may be overridden by user agents, assistive technologies, or the user. For example, if assistive technologies can determine that a change occurred in response to a key press or a mouse click, the assistive technologies may present that change immediately even if the value of the aria-live attribute states otherwise.
+               </p>
+               <p>Since different users have different needs, it is up to the user to tweak his or her assistive technologies' response to a live region with a certain politeness level from the commonly defined baseline. Assistive technologies may choose to implement increasing and decreasing levels of granularity so that the user can exercise control over queues and interruptions.
+               </p>
+               <p>When the property is not set on an object that needs to send updates, the politeness level is the value of the nearest ancestor that sets the aria-live attribute.
+               </p>
+               <p>The aria-live attribute is the primary determination for the order of presentation of changes to live regions. Implementations will also consider the default level of politeness in a role when the aria-live attribute is not set in the ancestor chain (e.g., log changes are polite by default). Items which are assertive will be presented immediately, followed by polite items. User agents or assistive technologies MAY choose to clear queued changes when an assertive change occurs. (e.g., changes in an assertive region may remove all currently queued changes)
+               </p>
+               <pre class="code">&lt;element aria-live="off|polite|assertive|rude" ... /&gt;</pre>
+           </section>
+
+           <section class="bit">
+               <header class="bit__header">
+                   <h1>aria-owns <span class="emphasis__property">(property)</span></h1>
+               </header>
+               <p>Identifies an element (or elements) in order to define a visual, functional, or contextual parent/child relationship between DOM elements where the DOM hierarchy cannot be used to represent the relationship.
+               </p>
+               <p>The value of the aria-owns attribute is a space-separated list of IDREFS that reference one or more elements in the document by ID. The reason for adding aria-owns is to expose a parent/child contextual relationship to assistive technologies that is otherwise impossible to infer from the DOM.
+               </p>
+               <p>Authors SHOULD NOT use aria-owns as a replacement for the DOM hierarchy. If the relationship is represented in the DOM, do not use aria-owns. Authors MUST ensure that an element's ID is not specified in more than one other element's aria-owns attribute at any time. In other words, an element can have only one explicit owner.
+               </p>
+               <pre class="code">&lt;element aria-owns="id" ... /&gt;</pre>
+           </section>
+
+            <section class="bit">
+               <header class="bit__header">
+                   <h1>aria-relevant <span class="emphasis__property">(property)</span></h1>
+               </header>
+               <p>This is a Live Region attribute.</p>
+               <p>Indicates what user agent change notifications (additions, removals, etc.) assistive technologies will receive within a live region. See related aria-atomic.
+               </p>
+               <p>The attribute is represented as a space delimited list of the following values: additions, removals, text; or a single catch-all value all.
+               </p>
+               <p>This is used to describe semantically meaningful changes, as opposed to merely presentational ones. For example, nodes that are removed from the top of a log are merely removed for purposes of creating room for other entries, and the removal of them does not have meaning. However, in the case of a buddy list, removal of a buddy name indicates that they are no longer online, and this is a meaningful event. In that case aria-relevant will be set to all. When the aria-relevant attribute is not provided, the default value, additions text, indicates that text modifications and node additions are relevant, but that node removals are irrelevant.
+               </p>
+               <pre class="code">&lt;element aria-relevant="additions|removals|text|all" ... /&gt;</pre>
+           </section>
         </article>
-<article class="main">
+ 
+
+        </article>
+        <article class="main">
             <header class="main__header">
                 <h1>Form Properties</h1>
             </header>
@@ -477,8 +620,8 @@
                         &lt;/div&gt;
                     &lt;/div&gt;
                </pre>
-               <p>Are</p>
            </section>
+
             <section class="bit">
                 <header class="bit__header">
                     <h1>aria-required <span class="emphasis__state">(state)</span></h1>
@@ -497,72 +640,336 @@
                         &lt;/div&gt;
                     &lt;/div&gt;
                </pre>
-               <p>Are</p>
            </section>
-           <footer class="main__footer">
-                <p>Footer i</p>
-            </footer>
+
+           <section class="bit">
+               <header class="bit__header">
+                   <h1>aria-haspopup <span class="emphasis__property">(property)</span></h1>
+               </header>
+               <p>This is also a Global property</p>
+               <p>Indicates that the element has a popup context menu or sub-level menu.
+               </p>
+               <p>This means that activation renders conditional content. Note that ordinary tooltips are not considered popups in this context.
+               </p>
+               <p>A popup is generally presented visually as a group of items that appears to be on top of the main page content.
+               </p>
+               <pre class="code">&lt;element aria-haspopup="true|false" ... /&gt;</pre>
+           </section>
+
         </article>
+
         <article class="main">
             <header class="main__header">
-                <h1>Full list of global props to be explained above</h1>
+                <h1>ARIA Widget Properties</h1>
             </header>
-            <p>These can be set on any element regardless of whether a role is applied or not. These are supported by all roles and base markup elements.</p>
-            <p>These below need explanations and examples. Work in progress.</p>
-            <ul>
-                <li class="done">aria-atomic</li>
-                <li class="done">aria-busy (state)</li>
-                <li class="done">aria-controls</li>
-                <li class="done">aria-describedby</li>
-                <li>aria-disabled (state)</li>
-                <li>aria-dropeffect</li>
-                <li>aria-flowto</li>
-                <li>aria-grabbed (state)</li>
-                <li>aria-haspopup</li>
-                <li class="done">aria-hidden (state)</li>
-                <li>aria-invalid (state)</li>
-                <li class="done">aria-label</li>
-                <li class="done">aria-labelledby</li>
-                <li>aria-live</li>
-                <li>aria-owns</li>
-                <li>aria-relevant</li>
-            </ul>
-            <p>These are widget attributes specific to common user interface elements which recieve user input and process actions. These are used to support widget roles.</p>
-            <p>This also will need work and examples and code.</p>
-            <ul>
-                <li>aria-autocomplete</li>
-                <li>aria-checked (state)</li>
-                <li>aria-disabled (state)</li>
-                <li>aria-expanded (state)</li>
-                <li>aria-haspopup</li>
-                <li>aria-hidden (state)</li>
-                <li>aria-invalid (state)</li>
-                <li>aria-label</li>
-                <li>aria-level</li>
-                <li>aria-multiline</li>
-                <li>aria-multiselectable</li>
-                <li>aria-orientation</li>
-                <li>aria-pressed (state)</li>
-                <li>aria-readonly</li>
-                <li>aria-required</li>
-                <li>aria-selected (state)</li>
-                <li>aria-sort</li>
-                <li>aria-valuemax</li>
-                <li>aria-valuemin</li>
-                <li>aria-valuenow</li>
-                <li>aria-valuetext</li>
-            </ul>
+            <p class="main__summary">These are widget attributes specific to common user interface elements which recieve user input and process actions. These are used to support widget roles.</p>
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-autocomplete <span class="emphasis__property">(property)</span></h1>
+                </header>
+                <p><b>Used in Roles:</b> textbox, combobox</p>
+                <p>Indicates whether user input completion suggestions are provided.
+                </p>
+                <p>For a textbox with the aria-autocomplete attribute set to either inline or both, authors SHOULD ensure that any auto-completed text is selected, so the user can type over it.
+                </p>
+                <pre class="code">&lt;element aria-autocomplete="inline|list|both|none" ... /&gt;</pre>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-checked <span class="emphasis__state">(state)</span></h1>
+                </header>
+                <p><b>Used in Roles:</b> option</p>
+                <p><b>Inherits into Roles:</b> menuitemradio, radio, treeitem</p>
+                <p>Indicates the current "checked" state of checkboxes, radio buttons, and other widgets.
+                </p>
+                <p>The aria-checked attribute indicates whether the element is checked (true), unchecked (false), or represents a group of other elements that have a mixture of checked and unchecked values (mixed). Most inputs only support values of true and false, but the mixed value is supported by certain tri-state inputs such as a checkbox or menuitemcheckbox.
+                </p>
+                <p>The mixed value is not supported on radio or menuitemradio or any element that inherits from these in the taxonomy, and user agents MUST treat a mixed value as equivalent to false for those roles.
+                </p>
+                <pre class="code">&lt;element aria-checked="true|false|mixed" ... /&gt;</pre>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-disabled <span class="emphasis__state">(state)</span></h1>
+                </header>
+                <p><b>Used in Roles:</b> All elements of the base markup</p> 
+                <p>Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable.
+                </p>
+                <p>For example, irrelevant options in a radio group may be disabled. Disabled elements might not receive focus from the tab order. For some disabled elements, applications might choose not to support navigation to descendants. In addition to setting the aria-disabled attribute, authors SHOULD change the appearance (grayed out, etc.) to indicate that the item has been disabled.
+                </p>
+                <p>The state of being disabled applies to the current element and all focusable descendant elements of the element on which the aria-disabled attribute is applied.
+                </p>
+                <pre class="code">&lt;element aria-disabled="true|false" ... /&gt;</pre>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-expanded <span class="emphasis__state">(state)</span></h1>
+                </header>
+                <p><b>Used in Roles:</b> button, document, link, section, sectionhead, separator, window</p>
+                <p>Indicates whether the element, or another grouping element it controls, is currently expanded or collapsed.
+                </p>
+                <p>For example, this indicates whether a portion of a tree is expanded or collapsed. In other instances, this may be applied to page sections to mark expandable and collapsible regions that are flexible for managing content density. Simplifying the user interface by collapsing sections may improve usability for all, including those with cognitive or developmental disabilities.
+                </p>
+                <p>If the element with the aria-expanded attribute controls the expansion of another grouping container that is not 'owned by' the element, the author SHOULD reference the container by using the aria-controls attribute.
+                </p>
+                <pre class="code">&lt;element aria-expanded="true|false|undefined" ... /&gt;</pre>
+            </section>
+
+            <section class="bit">
+               <header class="bit__header">
+                   <h1>aria-haspopup <span class="emphasis__property">(property)</span></h1>
+               </header>
+               <p><b>Used in Roles:</b> All elements of the base markup</p>
+               <p>This is also a global property.<p>
+               <p>Indicates that the element has a popup context menu or sub-level menu.
+               </p>
+               <p>This means that activation renders conditional content. Note that ordinary tooltips are not considered popups in this context.
+               </p>
+               <p>A popup is generally presented visually as a group of items that appears to be on top of the main page content.
+               </p>
+               <pre class="code">&lt;element aria-haspopup="true|false" ... /&gt;</pre>
+           </section>
+
+           <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-hidden <span class="emphasis__state">(state)</span></h1>
+                </header>
+                <p><b>Used in Roles:</b> All elements of the base markup</p>
+                <p>This is also a global state</p>
+                <p>This indicates that this element and all its descendants are not visible or perceivable to any user.</p>
+                <p>If that element is only visible after a user action, the attribute has to be set to 'true'. When that element is visible, the attribute must be changed from 'true' to 'false' in order to indicate the state change. This must be set regardless of the mechanic used to hide/show the item. This allows hidden elements to be skipped by assistive technologies/user agents. CSS attribute selector can be used to hide a hidden element, while JS would only be used to update the value of the attribute on click.</p>
+                <p>You can use this to hide visibly rendered content from assistive technologies ONLY if the act of hiding the content is intended to improve the experience for assistive technology users by removing redundant or extraneous content. If you do that, you must ensure that identical or equivalent meaning/functionality is exposed to assistive technology. This is a real liability though, so don't do this unless there is no other alternative.</p>
+                <p class="note">Both CSS declarations "visibility: hidden;" and "display: none;" hide the content from assistive technologies that access the DOM through rendering engine.</p>
+                <pre class="code">
+                    &lt;div aria-hidden="false"&gt;
+                        &lt;div class="alert"&gt;
+                            This message is visible!!
+                        &lt;/div&gt;
+                    &lt;/div&gt;</pre>
+               <p> Aria hidden!
+                </p>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-invalid <span class="emphasis__state">(state)</span></h1>
+                </header>
+                <p><b>Used in Roles:</b> All elements of the base markup</p>
+                <p>This is also a global state.</p>
+                <p>Indicates the entered value does not conform to the expected format</p>
+                <p>if the value is out of range, the attribute should be set to 'true'. When true, help should be given in the form of suggestions from the author about correcting known mistakes (missing # or something etc)</p>
+                <pre class="code">
+                    &lt;div role="banner"&gt;
+                        &lt;div class="alert"&gt;
+                            &lt;h1 class="alert__heading"&gt;
+                               Warning!
+                            &lt;/h1&gt;
+                            &lt;section class="alert__message"&gt;
+                                At 5:30 EST, severe weather will be incoming!
+                            &lt;/section&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+               </pre>
+           </section>
+
+             <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-label <span class="emphasis__property">(property)</span></h1>
+                </header>
+                <p><b>Used in Roles:</b> All elements of the base markup</p>
+                <p>This is also a global property</p>
+                <p>A string value that labels the current element with a recognizable object name.</p>
+                <p>Use aria-label if it is for text that is NOT visible on a screen. <span class="note">(if there is visible text labelling the element, use aria-labelledby instead)</span></p>
+                <pre class="code">
+                    &lt;div class="control"&gt;
+                        &lt;div class="controls"&gt;
+                           &lt;button aria-label="Close" onclick="myAction.close()"&gt;X&lt;/button&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;</pre>
+               <p>Because there is nothing in the button text that actually says it closes the page, using a label there is a good practice.
+                </p>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-level <span class="emphasis__property">(property)</span></h1>
+                </header>
+                <p><b>Used in Roles:</b> grid, heading, listitem, row, tablist</p>
+                <p>Defines the hierarchical level of an element within a structure.
+                </p>
+                <p>This can be applied inside trees to tree items, to headings inside a document, to nested grids, nested tablists and to other structural items that may appear inside a container or participate in an ownership hierarchy. The value for aria-level is an integer greater than or equal to 1.
+                </p>
+                <p>Levels increase with depth. If the DOM ancestry does not accurately represent the level, authors SHOULD explicitly define the aria-level attribute.
+                </p>
+                <p>This attribute is applied to elements that act as leaf nodes within the orientation of the set, for example, on elements with role treeitem rather than elements with role group. This means that multiple elements in a set may have the same value for this attribute. Although it would be less repetitive to provide a single value on the container, restricting this to leaf nodes ensures that there is a single way for assistive technologies to use the attribute.
+                </p>
+                <p>If the DOM ancestry accurately represents the level, the user agent can calculate the level of an item from the document structure. This attribute can be used to provide an explicit indication of the level when that is not possible to calculate from the document structure or the aria-owns attribute. User agent support for automatic calculation of level may vary; authors SHOULD test with user agents and assistive technologies to determine whether this attribute is needed. If the author intends for the user agent to calculate the level, the author SHOULD omit this attribute.
+                </p>
+                <pre class="code">&lt;element aria-level="1" ... /&gt;</pre>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-multiline <span class="emphasis__property">(property)</span></h1>
+                </header>
+                <p><b>Used in Roles:</b> textbox</p>
+                <p>Indicates whether a text box accepts multiple lines of input or only a single line.
+                </p>
+                <p>In most user agent implementations, the default behavior of the ENTER or RETURN key is different between the single-line and multi-line text fields in HTML. When user has focus in a single-line &lt;input type="text"&gt; element, the keystroke usually submits the form. When user has focus in a multi-line &lt;textarea&gt; element, the keystroke inserts a line break. The WAI-ARIA textbox role differentiates these types of boxes with the aria-multiline attribute, so authors are advised to be aware of this distinction when designing the field.
+                </p>
+                <pre class="code">&lt;element aria-multiline="true|false"/&gt;</pre>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-multiselectable <span class="emphasis__property">(property)</span></h1>
+                </header>
+                <p><b>Used in Roles:</b> gird, listbox, tablist, tree</p>
+                <p>Indicates that the user may select more than one item from the current selectable descendants.
+                </p>
+                <p>Authors SHOULD ensure that selected descendants have the aria-selected attribute set to true, and selectable descendant have the aria-selected attribute set to false. Authors SHOULD NOT use the aria-selected attribute on descendants that are not selectable.
+                </p>
+                <pre class="code">&lt;element aria-multiselectable="true|false"/&gt;</pre>
+                <pre class="code">object.setAttribute("aria-multiselectable",value);var value = object.getAttribute("aria-multiselectable");</pre>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-orientation <span class="emphasis__property">(property)</span></h1>
+                </header>
+                <p><b>Used in Roles:</b> scrollbar, separator, slider</p>
+                <p>Indicates whether the element and orientation is horizontal or vertical.
+                </p>
+                <pre class="code">&lt;element aria-orientation="horizontal|vertical" ... /&gt;</pre>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-pressed <span class="emphasis__state">(state)</span></h1>
+                </header>
+                <p><b>Used in Roles:</b> button</p>
+                <p>Indicates the current "pressed" state of toggle buttons.</p>
+                <p>Toggle buttons require a full press-and-release cycle to change their value. Activating it once changes the value to true, and activating it another time changes the value back to false. A value of mixed means that the values of more than one item controlled by the button do not all share the same value. Examples of mixed-state buttons are described in WAI-ARIA Authoring Practices [ARIA-PRACTICES]. If the attribute is not present, the button is not a toggle button.</p>
+                <p>The <code>aria-pressed</code> attribute is similar but not identical to the <code>aria-checked</code> attribute. Operating systems support <code>pressed</code> on buttons and <code>checked</code> on checkboxes.</p>
+                <pre class="code">&lt;element aria-pressed="true|false|mixed|undefined" /&gt;</pre>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-readonly <span class="emphasis__property">(property)</span></h1>
+                </header>
+                <p><b>Used in Roles:</b> grid, gridcell, textbox</p>
+                <p>Indicates that the element is not editable, but is otherwise operable.</p>
+                <p>This means the user can read but not set the value of the widget. Readonly elements are relevant to the user, and application authors SHOULD NOT restrict navigation to the element or its focusable descendants. Other actions such as copying the value of the element are also supported. This is in contrast to disabled elements, to which applications might not allow user navigation to descendants.</p>
+                <p>Examples include:</p>
+                <ul>
+                    <li>A form element which represents a constant.</li>
+                    <li>Row or column headers in a spreadhseet grid.</li>
+                    <li>The result of a calcculation such as a shopping cart total.</li>
+                </ul>
+                <pre class="code">&lt;element aria-readonly="true|false" ... /&gt;</pre>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>aria-required <span class="emphasis__state">(state)</span></h1>
+                </header>
+                <p>Indicates a required field. Can be used in conjunction with aria-invalid.</p>
+                <p>When user attempts to submit wrong data on a field with this attribute, the author can use the aria-invalid attribute to signal an error. However this must run AFTER a user has clicked 'submit' on a widget, b/c the user has not actually entered data up to that point.</p>
+                <pre class="code">
+                    &lt;div role="banner"&gt;
+                        &lt;div class="alert"&gt;
+                            &lt;h1 class="alert__heading"&gt;
+                               Warning!
+                            &lt;/h1&gt;
+                            &lt;section class="alert__message"&gt;
+                                At 5:30 EST, severe weather will be incoming!
+                            &lt;/section&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+               </pre>
+           </section>
+
+           <section class="bit">
+               <header class="bit__header">
+                   <h1>aria-selected <span class="emphasis__state">(state)</span></h1>
+               </header>
+               <p><b>Used in Roles:</b> gridcell, option, row, tab</p>
+               <p>Indicates the current "selected" state of various widgets.</p>
+               <p>This attribute is used with single-selection and multiple-selection widgets:</p>
+               <ul>
+                   <li>Single-selection containers where the currently focused item is not selected. The selection normally follows the focus, and is managed by the user agent.</li>
+                   <li>Multiple-selection containers. Authors SHOULD ensure that any selectable descendant of a container in which the aria-multiselectable attribute is true specifies a value of either true or false for the aria-selected attribute.</li>
+               </ul>
+               <pre class="code">&lt;element aria-selected="true|false|undefined"/&gt;</pre>
+           </section>
+
+           <section class="bit">
+               <header class="bit__header">
+                   <h1>aria-sort <span class="emphasis__property">(property)</span></h1>
+               </header>
+               <p><b>Used in Roles:</b> columnheader, rowheader</p>
+               <p>Indicates if items in a table or grid are sorted in ascending or descending order.</p>
+               <p>Authors SHOULD only apply this property to table headers or grid headers. If the property is not provided, there is no defined sort order. For each table or grid, authors SHOULD apply aria-sort to only one header at a time.</p>
+               <pre class="code">&lt;element aria-sort="ascending|descending|none|other"/&gt;</pre>
+           </section>
+
+           <section class="bit">
+               <header class="bit__header">
+                   <h1>aria-valuemax <span class="emphasis__property">(property)</span></h1>
+               </header>
+               <p><b>Used in Roles:</b> range</p>
+               <p>Defines the maximum allowed value for a range widget.</p>
+               <p>A range widget may start with a given value, which can be increased until a maximum value, defined by this property, is reached.</p>
+               <p>Declaring the minimum and maximum values allows alternate devices to react to arrow keys, validate the current value, or simply let the user know the size of the range. If the aria-valuenow has a known maximum and minimum, the author SHOULD provide properties for aria-valuemax and aria-valuemin.</p>
+               <p>Authors MUST ensure the value of aria-valuemax is greater than or equal to the value of aria-valuemin.</p>
+               <pre class="code">&lt;div role="slider" aria-valuenow="4" aria-valuemin="1" aria-valuemax="10"&gt;</pre>
+           </section>
+
+           <section class="bit">
+               <header class="bit__header">
+                   <h1>aria-valuemin <span class="emphasis__property">(property)</span></h1>
+               </header>
+               <p><b>Used in Roles:</b> range</p>
+               <p>Defines the minimum allowed value for a range widget.</p>
+               <p><b>See aria-valuemax</b></p>
+               <pre class="code">&lt;div role="slider" aria-valuenow="4" aria-valuemin="1" aria-valuemax="10"&gt;</pre>
+           </section>
+
+           <section class="bit">
+               <header class="bit__header">
+                   <h1>aria-valuenow <span class="emphasis__property">(property)</span></h1>
+               </header>
+               <p><b>Used in Roles:</b> range</p>
+               <p>Defines the current value for a range widget.</p>
+               <p>This property is used, for example, on a range widget such as a slider or progress bar.</p>
+               <p>If the current value is not known (for example, an indeterminate progress bar), the author SHOULD NOT set the aria-valuenow attribute. If the aria-valuenow attribute is absent, no information is implied about the current value. If the aria-valuenow has a known maximum and minimum, the author SHOULD provide properties for aria-valuemax and aria-valuemin.</p>
+               <p>The value of aria-valuenow is a decimal number. If the range is a set of numeric values, then aria-valuenow is one of those values. For example, if the range is [0, 1], a valid aria-valuenow is 0.5. A value outside the range, such as -2.5 or 1.1, is invalid.</p>
+               <p>For progressbar elements and scrollbar elements, assistive technologies SHOULD render the value to users as a percent, calculated as a position on the range from aria-valuemin to aria-valuemax if both are defined, otherwise the actual value with a percent indicator. For elements with role slider and spinbutton, assistive technologies SHOULD render the actual value to users.</p>
+               <p>When the rendered value cannot be accurately represented as a number, authors SHOULD use the aria-valuetext attribute in conjunction with aria-valuenow to provide a user-friendly representation of the range's current value. For example, a slider may have rendered values of small, medium, and large. In this case, the values of aria-valuenow could range from 1 through 3, which indicate the position of each value in the value space, but the aria-valuetext would be one of the strings: small, medium, or large.</p>
+               <p>The code below would display a simple slider with a current value fo 4.</p>
+               <pre class="code">&lt;div role="slider" aria-valuenow="4" aria-valuemin="1" aria-valuemax="10"&gt;</pre>
+           </section>
+
+           <section class="bit">
+               <header class="bit__header">
+                   <h1>aria-valuetext <span class="emphasis__property">(property)</span></h1>
+               </header>
+               <p><b>Used in Roles:</b> progressbar, scrollbar, slider, spinbutton, range</p>
+               <p>Defines the human readable text alternative of aria-valuenow for a range widget.</p>
+               <p>This property is used, for example, on a range widget such as a slider or progress bar.</p>
+               <p>If the aria-valuetext attribute is set, authors SHOULD also set the aria-valuenow attribute, unless that value is unknown (for example, on an indeterminate progressbar).</p>
+               <p>Authors SHOULD only set the aria-valuetext attribute when the rendered value cannot be meaningfully represented as a number. For example, a slider may have rendered values of small, medium, and large. In this case, the values of aria-valuenow could range from 1 through 3, which indicate the position of each value in the value space, but the aria-valuetext would be one of the strings: small, medium, or large. If the aria-valuetext attribute is absent, the assistive technologies will rely solely on the aria-valuenow attribute for the current value.</p>
+               <p>If aria-valuetext is specified, assistive technologies SHOULD render that value instead of the value of aria-valuenow.</p>
+               <pre class="code">&lt;div role="slider" aria-valuenow="1" aria-valuemin="1" aria-valuemax="7" aria-valuetext="Sunday"&gt;</pre>
+           </section>
           
-           <footer class="main__footer">
-                <p>Footer inside main layout content</p>
-            </footer>
         </article>   
         
-        
     </main>
-    <footer role="contentinfo">
-        <p> copyright main site footer
-    </footer>
     <!-- SCRIPTS -->
 
     <script src="scripts/site.min.js"></script>
