@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="styles/site.min.css">
+    </head>
+<body>
+    <main class="primary" role="main">
+        <section class="banner" role="banner">
+            <header class="main__header--large">
+                <h1>Accessible Rich Internet Application (ARIA) Guide</h1>
+            </header>
+        </section>
+        <nav class="main-nav">
+            <ul class="main-nav-list">
+                <li class="main-nav--item"><a class="main-nav--link" href="./index.html">Home</a></li>
+                <li class="main-nav--item"><a class="main-nav--link" href="./roles.html">Roles</a></li>
+                <li class="main-nav--item"><a class="main-nav--link" href="./properties.html">States & Properties</a></li>
+                <li class="main-nav--item"><a class="main-nav--link" href="./definitions.html">Definitions</a></li>
+            </ul>
+        </nav>
+
+        <article class="main">
+            <header class="main__header" id="LandmarkRoles">
+                <h1>ARIA Landmark Role Summary</h1>
+            </header>
+            <p class="main__summary">Role Attributes should only be placed on an HTML5 equivalant element (nav gets a role of navigation etc) or non-semantic elements because they do not have semantic meaning. If you place a role on a semantic element (like a ul) most screen readers will override the role with the element's native one with the sepecified one.</p>
+           <section class="bit">
+                <header class="bit__header">
+                    <h1>Banner</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;header&gt;</p>
+                </header>
+                <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content. Header elements are not considered landmarks when they are contained within a section or article element.</p>
+                <p data-height="265" data-theme-id="dark" data-slug-hash="wWYgRW" data-default-tab="html" data-user="rebekahpadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/rebekahpadula/pen/wWYgRW/">role="banner"</a> by Rebekah Padula (<a href="http://codepen.io/rebekahpadula">@rebekahpadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+           </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>Navigation</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;nav&gt;</p>
+                </header>
+                <p>Use a nav or div as the container of a navigation list that is created with a ul or ol tag.</p>
+                <p>The container's role should be set to navigation</p>
+                <p>For pages/sites with more than one navigation present at a time, aria-label is required on the container to give a description of each navigation's purpose. If you want to give more information on a navigation you can use aria-describedby but this is not required.</p>
+                <p data-height="265" data-theme-id="dark" data-slug-hash="xOyYQd" data-default-tab="html" data-user="slkennedy" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/slkennedy/pen/xOyYQd/">Navigation</a> by Sara Kennedy (<a href="http://codepen.io/slkennedy">@slkennedy</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="//assets.codepen.io/assets/embed/ei.js"></script>               
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>Complementary</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;aside&gt;</p>
+                </header>
+                <p>Complementary roles are the equvilant of using an aside. Think of them as tertiary content just the same as an aside as you add roles to your code.</p>
+                <p>A suppoerting section of the document, designed to be complementary to the main content at a similar level in the DOM hierarchy, but remains meaninful when seperated from the main content. The complementary role indicated that contained content is relevant to the main content.</p>
+                <p>Some examples might be show times, current weatherm related articles, or stocks to watch.</p>
+                <p data-height="265" data-theme-id="dark" data-slug-hash="oLaBOR" data-default-tab="html" data-user="rebekahpadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/rebekahpadula/pen/oLaBOR/">role="complementary"</a> by Rebekah Padula (<a href="http://codepen.io/rebekahpadula">@rebekahpadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>Contentinfo</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;footer&gt;</p>
+                </header>
+                <p>The contentinfo role is usually for the footer of the page. Again, one per page. Footer elements are not considered landmarks when they are contained within a section or article element.</p>
+                <p data-height="265" data-theme-id="dark" data-slug-hash="ZOqLNo" data-default-tab="html" data-user="rebekahpadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/rebekahpadula/pen/ZOqLNo/">role="contentinfo"</a> by Rebekah Padula (<a href="http://codepen.io/rebekahpadula">@rebekahpadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>Form</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;form&gt;</p>
+                </header>
+                <p>The form role contains form elements which can be submitted by user. Please note that this is considered a navigable landmark only when labelled with aria-label or aria-labelledby.</p>
+                <p>A form may be a mix of host language form controls, scripted controls, and hyperlinks. Authors are reminded to use native host language semantics to create form controls whenever possible. For search facilities, authors SHOULD use the search role and not the generic form role. Authors SHOULD provide a visible label for the form referenced with aria-labelledby. If and author uses a script to submit a form based on a user action that would otherwise not trigger an <code>onsubmit</code> event, the author SHOULD provide the user with advance notification of the behavior. Use native host language sematics to create form controls whenever possible.</p>
+                <p><b>When testing the form role I found that a div containing form elements (inputs) does not throw any accessibility errors like I would expect.... My question is will the form tag be treated/announced appropriately by screen readers without the aria role?</b></p>
+                <p data-height="265" data-theme-id="dark" data-slug-hash="GqYWKo" data-default-tab="html" data-user="rebekahpadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/rebekahpadula/pen/GqYWKo/">role="form"</a> by Rebekah Padula (<a href="http://codepen.io/rebekahpadula">@rebekahpadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>Log</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;form&gt;</p>
+                </header>
+                <p>A type of live region where new information is added and old information may disappear. Unlike other live regions, in this role there is a relationship between the arrival of new items in the log and the reading order.</p>
+                <p>New information is added only to the end of the log, not at arbitrary points.</p>
+                <p>Examples include chat logs, message history, game log, or an error log.</p>
+                <p>Note that elements with the role <code>log</code> have an implicit <code>aria-live</code> value of <code>polite</code> but you can change it if you want.</p>
+                <p data-height="265" data-theme-id="dark" data-slug-hash="rLqyNd" data-default-tab="html" data-user="rebekahpadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/rebekahpadula/pen/rLqyNd/">role="log"</a> by Rebekah Padula (<a href="http://codepen.io/rebekahpadula">@rebekahpadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>Main</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;main&gt;</p>
+                </header>
+                <p>The main role is for the main content of the page. Therer should only be one main landmark per page.</p>
+                <p data-height="265" data-theme-id="dark" data-slug-hash="ZOqZGj" data-default-tab="html" data-user="rebekahpadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/rebekahpadula/pen/ZOqZGj/">role="main"</a> by Rebekah Padula (<a href="http://codepen.io/rebekahpadula">@rebekahpadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+            </section>
+
+             <section class="bit warn">
+                <header class="bit__header">
+                    <h1>Region</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;section&gt;</p>
+                </header>
+                <pre class="code">
+                    &lt;div class="support" role="region"&gt;
+                    &lt;/div&gt;</pre>
+                <p>NOTE THIS IS NOT AN ARIA LANDMARK</p>
+                <p>This is also a generic landmark. It should only be used when a more specific role is not available. Assistive technologies should treat this role as a complimentary region. Please note that this is considered a navigable landmark only when labelled with aria-label or aria-labelledby.</p>
+            </section>
+
+            <section class="bit warn">
+                <header class="bit__header">
+                    <h1>Article</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;article&gt;</p>
+                </header>
+                <pre class="code">
+                    &lt;article class="support" role="article"&gt;
+                    &lt;/article&gt;</pre>
+                <p>NOTE THIS IS NOT AN ARIA LANDMARK</p>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>Search</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;form&gt;</p>
+                </header>
+                <pre class="code">
+                    &lt;main class="primaryContent" role="search"&gt;
+                        &lt;label for="search"&gt;Search Here&lt;/label&gt;
+                        &lt;input type="text" id="search" role="" /&gt;
+                    &lt;/form&gt;</pre>
+                <p>Reserved for the search tool.</p>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>status</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;form&gt;</p>
+                </header>
+                <pre class="code">
+                    &lt;form class="form" role="status"&gt;
+                    &lt;/form&gt;</pre>
+                <p>Container for advisory info or feedback.</p>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>application</h1>
+                    <p class="bit__summary">HTML5 Equivalant to &lt;div&gt;</p>
+                </header>
+                <pre class="code">
+                    &lt;div class="primaryContent" role="application"&gt;
+                    &lt;/div&gt;</pre>
+                <p>Represents a unique software unit. Keyboard commands handled by application rather than browser itself. Use sparingly if at all. The times it is necessary to be used will be few and far between for the most part. Please note that this is considered a navigable landmark only when labelled with aria-label or aria-labelledby.</p>
+            </section>
+
+            <section class="bit">
+                <header class="bit__header">
+                    <h1>presentation</h1>
+                    <p class="bit__summary"></p>
+                </header>
+                <pre class="code">
+                    &lt;ul role="presentation"&gt;
+                        &lt;li&gt;Item 1&lt;/li&gt;
+                        &lt;li&gt;Item 2&lt;/li&gt;
+                    &lt;/ul&gt;</pre>
+                <p>This removes any semantic meaning from the element to which it is assigned. This also applies to elements' children that are required (lists or tables) the child items will inherit the role from the parent.</p>
+                <p>using this label tells assistive technology that the element is semantically neutral and irrelevant for accessibility.</p>
+                <p>Do not use this if the element is focusable.</p>
+                <p>Do not use this if it has any ARIA attribute other than hidden.</p>
+                <p>Do not use if the element is referenced by another elements ARIA controls or properties.</p>
+                <p>Do not use if a required child element has been explicitly marked with a role (ex role="button") the child will have a role of 'button' and not 'presentation'</p>
+            </section>
+        </article>
+    </main>
+</body>
+</html>
