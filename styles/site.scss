@@ -1,30 +1,30 @@
-@mixin full-width($padding-right: 0px, $padding-left: 0px) {
-  margin: 0 calc(0px - (100vw - 100%) / 2);
-
-  padding-left: calc((100vw - 100%) / 2 + #{$padding-left});
-  padding-right: calc((100vw - 100%) / 2 + #{$padding-right});
-}
+@import 'nav/index';
+@import 'main-header/index';
+@import 'general-rules/index';
+@import 'definitions/index';
+@import 'roles/blah';
+@import 'keyboard/blah';
 
 * {
     box-sizing: border-box;
 }
 
-html {
-    color: #262525;
-}
-
-.main {
-    display: flex;
-    flex-direction: column;
+body {
+    background-color: #fff;
+    color: #333;
+    font-family: Open Sans;
+    margin: 0;
 }
 
 ul {
     padding: 0;
-    margin: 0;
 }
 
-@import "scss/base/index";
-@import "scss/layout/index";
-@import "scss/modules/index";
-
-@import "scss/utilities/index";
+code {
+    // font-family: inherit;
+    color: #455a64;
+    font-weight: bold;
+    // background: #eee;
+    // padding: 0 5px;
+    font-size: 16px;
+}

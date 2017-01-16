@@ -2,144 +2,125 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ARIA Best Practices</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <title>General Rules and Guidelines</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="styles/site.min.css">
 </head>
-<body>  
+<body>
+    <header class="main-header">
+        <h1 class="main-header__heading">
+            ARIA Guide
+        </h1>
+        <h2 class="main-header__subheading">
+            Accessible Rich Internet Application
+        </h2>
+    </header>
 
-    <main class="primary" role="main">
+    <nav class="nav">
+        <ul class="nav__list">
+            <li class="nav__item--active">
+                <a class="nav__link" href="./index.html">
+                    General
+                </a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link" href="./roles.html">
+                    Roles
+                </a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link" href="./states-and-props.html">
+                    States & Properties
+                </a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link" href="./definitions.html">
+                    Definitions
+                </a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link" href="./components.html">
+                    Components
+                </a>
+            </li>
+        </ul>
+    </nav>
 
-        <section class="banner" role="banner">
-            <header class="main__header--large">
-                <h1>Accessible Rich Internet Application (ARIA) Guide</h1>
-                <img class="main-nav--icon" src="./icon-menu.png">
-            </header>
-        </section> 
+    <article class="general-rules">
 
-        <nav class="main-nav hidden">
-            <ul class="main-nav-list">
-                <li class="main-nav--item"><a class="main-nav--link" href="./index.html">Home</a></li>
-                <li class="main-nav--item"><a class="main-nav--link" href="./roles.html">Roles</a></li>
-                <li class="main-nav--item"><a class="main-nav--link" href="./properties.html">States & Properties</a></li>
-                <li class="main-nav--item"><a class="main-nav--link" href="./definitions.html">Definitions</a></li>
-            </ul>
-        </nav>
 
-    	<article class="main">
-            <header class="main__header" id="GeneralGuidelines">
-                <h1>ARIA General Guidelines & Rules</h1>
-            </header>
-            
-            <section class="bit">
-                <header class="bit__header" id="GeneralRules">
-                    <h1>ARIA General Use Rules</h1>
-                </header>
-                <ul>
-                    <li>If you can use native HTML elements or attributes with the semantics and behavior you need built in, do that instead of repurposing an element and adding an ARIA role, state or property.</li>
-                    <li>Do not change native semantics unless you really have to.</li>
-                    <li>All ARIA controls must be useable by keyboard.</li>
-                    <li>Do not use <code>role="presentation"</code> or <code>aria-hidden="true"</code> on any visible focusable element.</li>
-                    <li>All interactive elements must have an accessible name.</li>
-                </ul>
-            </section>
-
-            <section class="bit">
-                <header class="bit__header" id="BestPractices">
-                    <h1>ARIA Hints &amp; Best Practices</h1>
-                </header>
-                <ul>
-                    <li>Do not disable native browser focus styles</li>
-                    <li>Keep link underlines</li>
-                    <li>Add skip links at the top of the page in order to guide the user over areas they would like to skip</li>
-                    <li>Do not break heading order</li>
-                    <li>Hide content when it isn't in focus. Use <code>aria-hidden="true"</code> on wrapper div, everything in that div is hidden until that property is changed</li>
-                    <li>Break your page into percievable block areas which contain semantically associated information called "regions":
-                        <ul>
-                            <li>Assign landmark roles to your regions</li>
-                            <li>Each region should have a percievable header used to label the region</li>
-                            <li>Assign semantic navigation landmarks to the region.</li>
-                        </ul>
-                    </li>
-                    <li>Be careful when you chose to auto-focus from field to field. In the event you choose to do that you must still give user firm control over when to use it because they may not be done with a field and it is a user frustration</li>
-                    <li>Alert your user when a max-width has been reached in an input field</li>
-                    <li>Do not set anything to auto-submit</li>
-                    <li>Ensure color is not the primary means of communication</li>
-                </ul>
-            </section>
-        </article>
-
-        <article class="main">
-            <header class="main__header" id="KeyboardRequirements">
-                <h1>ARIA Keyboard Requirements</h1>
-            </header>
-            <p class="main__summary">This is a requirement, not just a best practice section.</p>
-           <section class="bit">
-                <header class="bit__header">
-                    <h1>Keyboard Bindings/Behaviors</h1>
-                </header>
-                <ul>
-                    <li>We must support users who cannot use a pointing device</li>
-                    <li><code>tabindex</code> attribute is applicable to all renderable html elements:
-                        <ul>
-                            <li>'tab' &amp; 'tab + shift' move focus among widgets and standard html controls</li>
-                            <li>element with <code>tabindex = 0</code> is added to tab sequence based on document order.</li>
-                            <li>element with <code>tabindex &gt; 0</code> will be added to tab sequence based on that # value</li>
-                            <li>element with <code>tabindex &lt; 0</code> will not be added to the tab sequence, but are enabled to recieve keyboard focus.</li>
-                        </ul>
-                    </li>
-                    <li>Once a widget has focus, arrow keys, spacebar, enter or other keys should be able to be used to navigate the options of the widget, change its state, or trigger its function(submit etc)</li>
-                    <li>Use onfocus to track the current focus.There is no standard DOM interface to get current focus, so you'll need to use JS to keep track of it.</li>
-                    <li>Follow keydowns to move focus. a keydown event handler can determine the next object to recieve focus and call that element's method. Use onkeydown, not onkeypress.</li>
-                    <li>refresh the element recieving focus's style using onfocus() to avoid inconsistent browser experiences.</li>
-                    <li>Disabled controls should not be in the tab order.</li>
-                    <li>Dont use :focus or attribute selectors to style the focus. IE issue. Instead, set the style in an onfocus event handler.</li>
-                    <li><span class="warn">Always draw focus for tabindex="-1" or any items that recieve focus IE will not always draw focus on items that are getting focus programatically.</span></li>
-                    <li>Prevent used key events from performing browser functions whilst in widget. For instance, if the arrow key is pressed, prevent it from scrolling the page with some JS code.</li>
-                    <li>If you need to have tooltips in your code (things that on hover pop up with additional info) there must be a way to activate it or access it via keyboard and with assitive technology. Use HTML title attribute as often as possible, as assistive technology will read/render it for tooltips. Currently you can also use JS if you need to to show/hide content based on focus.</li>
-                </ul>
-                <pre class="code">
-                    &lt;div class="myWidget"&gt;
-                        &lt;div class="controls"&gt;
-                            &lt;input class="widget__field" value="First Name" type="text" tabindex="0" /&gt;
-                            &lt;input class="widget__field" value="Last Name" type="text" tabindex="-1" /&gt;
-                            &lt;input type="submit" tabindex="-1" /&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;</pre>
-               <p>Roving focus example above. If you tab away and then tab back to the widget, same last active descendant becomes active again. Requires some JS to work in conjunction with the 
-                </p>
-            </section>
-        </article>
+        <p>TL;DR</p>
+        <p>Anything you can do with your mouse, make sure you can do it through the keyboard.</p>
         
+        <section class="general-rules__info">
+            <p>
+                WAI-ARIA defines a way to make Web content and Web applications more accessible to people with disabilities.
+            </p>
+            <a class="main-header__link" href="https://www.w3.org/TR/wai-aria/">W3C ARIA Documentation</a>
+        </section>
+
+        <section class="general-rules__section">
+
+            <h1 class="general-rules__heading">
+                General Guidelines and Rules
+            </h1>
+
+            <ol class="general-rules__list">
+                <li class="general-rules__list-item">
+                    If you can use a native HTML element or attribute with the semantics and behaviour you require already built in, instead of re-purposing an element and adding an ARIA role, state, or property to make it accessible, then do so
+                </li>
+
+                <li class="general-rules__list-item">
+                    Keep link underlines
+                </li>
+
+                <li class="general-rules__list-item">
+                    Add skip links at the top of the page to guide the user over areas they would like to skip
+                </li>
+
+                <li class="general-rules__list-item">
+                    Do not use <code>role="presentation"</code> or <code>aria-hidden="true"</code> on a visible focusable element. This would result in some users focusing on 'nothing'.
+                </li>
+
+                <li class="general-rules__list-item">
+                    Include alternative text for images
+                </li>
+
+                <li class="general-rules__list-item">
+                    All interactive elements must have an accessible name. An interactive element only has an accessible name when its accessibility API property has a value.
+                </li>
+
+                <li class="general-rules__list-item">
+                    Ensure color is not the primary means of communication
+                </li>
+
+                <li class="general-rules__list-item">
+                    Alert the user when a max-width has been reached in an input
+                </li>
+            </ol>
+        </section>
+
+        <section class="keyboard">
         
-        <!--<article class="main">
-            <header class="main__header" id="GlobalProperties">
-                <h1>Global ARIA States/Properties</h1>
-            </header>
-            <p class="main__summary">These can be set on any element regardless of whether a role is applied or not. These are supported by all roles and base markup elements.</p>
+            <h1 class="keyboard__heading">
+                Keyboard Requirements
+            </h1>
 
-        </article>
-        <article class="main">
-            <header class="main__header">
-                <h1>Form Properties</h1>
-            </header>
+            <ol class="keyboard__list">
+                <li class="keyboard__list-item">
+                    Ensure that all interactive elements are keyboard accessible
+                </li>
+                <li class="keyboard__list-item">
+                    Add the <code>tabindex</code> attribute whenever necessary
+                </li>
+                <li class="keyboard__list-item">
+                    Disabled controls should not be in the tab order
+                </li>
+            </ol>
 
-            
+        </section>
 
-           
-
-        </article>
-
-        <article class="main">
-            <header class="main__header">
-                <h1>ARIA Widget Properties</h1>
-            </header>
-            <p class="main__summary">These are widget attributes specific to common user interface elements which recieve user input and process actions. These are used to support widget roles.</p>
-
-        </article>   -->
-        
-    </main>
-    <!-- SCRIPTS -->
+    </article>
 
     <script src="scripts/site.min.js"></script>
 </body>

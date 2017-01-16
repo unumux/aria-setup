@@ -1,0 +1,15 @@
+.keyboard {
+    padding: 20px;
+    background-color: #eee;
+    border-radius: 3px;
+    margin-bottom: 10px;
+
+    &__heading {
+        text-align: center;
+        margin-top: 0;
+    }
+
+    &__list-item {
+        padding: 10px;
+    }
+}

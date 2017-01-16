@@ -1,52 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>ARIA Best Practices</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <title>Definitions</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="styles/site.min.css">
 </head>
-<body>   
-    <main class="primary" role="main">
-        <section class="banner" role="banner">
-            <header class="main__header--large">
-                <h1>Accessible Rich Internet Application (ARIA) Guide</h1>
-            </header>
-        </section>
-        <nav class="main-nav">
-            <ul class="main-nav-list">
-                <li class="main-nav--item"><a class="main-nav--link" href="./index.html">Home</a></li>
-                <li class="main-nav--item"><a class="main-nav--link" href="./roles.html">Roles</a></li>
-                <li class="main-nav--item"><a class="main-nav--link" href="./properties.html">States & Properties</a></li>
-                <li class="main-nav--item"><a class="main-nav--link" href="./definitions.html">Definitions</a></li>
-            </ul>
-        </nav>
 
+<body>
+    <header class="main-header" role="banner">
+        <h1 class="main-header__heading">
+            ARIA Guide
+        </h1>
+        <h2 class="main-header__subheading">
+            Accessible Rich Internet Application
+        </h2>
+    </header>
 
-        <section class="bit">
-            <header class="bit__header">
-                <h1>Basic ARIA Definitions</h1>
-            </header>
-            <ul>
-                <li>
-                    <b>Roles:</b> <code>Roles</code> describe widgets that aren't otherwise available in HTML 4, such as sliders and tabs. The role of an element should not change. Instead, remove the original element and replace it with an element with the new role 
-                </li>
-                <li>
-                    <b>Properties:</b>  <code>Properties</code> describe characteristics of these widgets, such as if they are draggable, have a required element, or have a popup associated with them. `Property` values may change but are less likely to change than state values, this is not a rule
-                    Examples of properties:  <code>aria-haspopup,</code>  <code>aria-controls,</code>  <code>aria-autocomplete</code> 
-                </li>
-                <li>
-                    <b>States:</b>  <code>States</code> describe the current interaction state of an element, informing the assistive technology if it is busy, disabled, selected, or hidden. `State` values change frequently based on user interaction
-                    Examples of states:  <code>aria-checked,</code> <code>aria-disabled,</code>  <code>aria-hidden,</code> <code>aria-grabbed,</code>  <code>aria-required</code> 
-                </li>
-                <li>
-                    <b>Owned Elements:</b> An 'owned element' is any DOM descendant of the element, any element specified as a child via <code>aria-owns</code>, or any DOM descendant of the owned child.
-                </li>
-                <li> 
-                    <a href="https://www.w3.org/TR/wai-aria/states_and_properties">Full list of ARIA states and properties</a>
-                </li>
-            </ul>
-        </section>
-    </main>
+    <nav class="nav" role="navigation">
+        <ul class="nav__list">
+            <li class="nav__item">
+                <a class="nav__link" href="./index.html">
+                    General
+                </a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link" href="./roles.html">
+                    Roles
+                </a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link" href="./states-and-props.html">
+                    States & Properties
+                </a>
+            </li>
+            <li class="nav__item--active">
+                <a class="nav__link" href="./definitions.html">
+                    Definitions
+                </a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link" href="./components.html">
+                    Components
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="definitions" role="document">
+
+        <dl class="definitions__list">
+
+                <dt class="definitions__term">
+                    Roles
+                </dt>
+                <dd class="definitions__para">
+                    describe widgets that aren't otherwise available in HTML 5, such as sliders and tabs. The role of an element should not change. Instead, remove the original element and replace it with an element with the new role 
+                </dd>
+
+                <dt class="definitions__term">
+                    Properties
+                </dt>
+                <dd class="definitions__para">
+                    describe characteristics of these widgets, such as if they are draggable, have a required element, or have a popup associated with them. `Property` values may change but are less likely to change than state values, this is not a rule
+                </dd>
+
+                <dt class="definitions__term">
+                    States
+                </dt>
+                <dd class="definitions__para">
+                    describe the current interaction state of an element, informing the assistive technology if it is busy, disabled, selected, or hidden. `State` values change frequently based on user interaction
+                </dd>
+
+                <dt class="definitions__term">
+                    Owned Elements
+                </dt> 
+                <dd class="definitions__para">
+                    An 'owned element' is any DOM descendant of the element, any element specified as a child via <code>aria-owns</code>, or any DOM descendant of the owned child
+                </dd>
+
+                <dt class="definitions__term">
+                    Landmarks
+                </dt>
+                <dd class="definitions__para">
+                    Landmark roles (or "landmarks") programmatically identify sections of a page. Landmarks help assistive technology (AT) users orient themselves to a page and help them navigate easily to various sections of a page
+                </dd>
+
+        </dl>
+
+    </section>
+
+    <script src="scripts/site.min.js"></script>
 </body>
-</html>
