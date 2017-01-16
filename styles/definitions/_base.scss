@@ -1,0 +1,7 @@
+@mixin base() {
+    padding: 20px;
+
+    @media screen and (min-width: 768px) {
+    padding: 0px 40px;
+    }
+}

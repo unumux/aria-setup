@@ -1,0 +1,47 @@
+.roles {
+    padding: 20px;
+    padding-top: 0;
+    text-align: center;
+
+    @media screen and (min-width: 768px) {
+        padding: 0px 40px;
+    }
+
+    &__item {
+        border: 1px solid #cfd8dc;
+        margin-bottom: 20px;
+        text-align: left;
+
+        &--obsolete {
+            border: 1px solid #c9c9c9;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+    }
+
+    &__heading {
+        font-size: 20px;
+        margin: 0;
+        text-align: center;
+        background-color: #cfd8dc;
+        width: 100%;
+        padding: 5px;
+
+        &--obsolete {
+            background-color: #c9c9c9;
+            font-size: 20px;
+            margin: 0;
+            text-align: center;
+            width: 100%;
+            padding: 5px;
+        }
+    }
+
+    &__subheading {
+        font-size: 16px;
+    }
+
+    &__detail {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,9 @@
+@import 'base';
+
+.definitions {
+    @include base();
+    @import 'header';
+    @import 'list';
+    @import 'term';
+    @import 'para';
+}

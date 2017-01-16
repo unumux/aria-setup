@@ -1,186 +1,487 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title></title>
-        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="styles/site.min.css">
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Roles</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="styles/site.min.css">
+</head>
+
 <body>
-    <main class="primary" role="main">
-        <section class="banner" role="banner">
-            <header class="main__header--large">
-                <h1>Accessible Rich Internet Application (ARIA) Guide</h1>
-            </header>
+
+    <header class="main-header" role="banner">
+        <h1 class="main-header__heading">
+            ARIA Guide
+        </h1>
+        <h2 class="main-header__subheading">
+            Accessible Rich Internet Application
+        </h2>
+    </header>
+
+    <nav class="nav" role="navigation">
+        <ul class="nav__list">
+            <li class="nav__item">
+                <a class="nav__link" href="./index.html">
+                    General
+                </a>
+            </li>
+            <li class="nav__item--active">
+                <a class="nav__link" href="./roles.html">
+                    Roles
+                </a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link" href="./states-and-props.html">
+                    States & Properties
+                </a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link" href="./definitions.html">
+                    Definitions
+                </a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link" href="./components.html">
+                    Components
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <article class="roles" role="article">
+
+        <!--<h1 class="roles__main-heading">-->
+            <!--ARIA Roles-->
+        <!--</h1>-->
+
+        <section class="roles__item">
+
+            <h1 class="roles__heading">
+                alert
+            </h1>
+
+            <div class="roles__detail">
+                <p class="roles__para">
+                    A message with important, and usually time-sensitive, information.
+                </p>
+                <p class="roles__para">
+                    Alerts are used to convey messages to alert the user. In the case of audio warnings this is an accessible alternative for a hearing-impaired user. The <code>alert</code> role goes on the node containing the alert message. Alerts are specialized forms of the status role, which will be processed as an atomic live region.
+                </p>
+                <p class="roles__para">
+                    Alerts are assertive live regions and will be processed as such by assistive technologies. Neither authors nor users agents are required to set or manage focus to them in order for them to be processed. Since alerts are not required to receive focus, content authors <span class="upper">should not</span> require users to close an alert. If the operating system allows, the user agent <span class="upper">should</span> fire a system alert event through the accessibility API when the WAI-ARIA alert is created. If an alert requires focus to close the alert, then content authors <span class="upper">should</span> use <code>alertdialog</code> instead.
+                </p>
+                <p class="roles__add">
+                    Elements with the role <code>alert</code> have an implicit <code>aria-live</code> value of <code>assertive</code>, and an implicit <code>aria-atomic</code> value of true.
+                </p>
+                <p data-height="200" data-theme-id="0" data-slug-hash="qakLka" data-default-tab="html" data-user="rebekahpadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/rebekahpadula/pen/qakLka/">alert</a> by Rebekah Padula (<a href="http://codepen.io/rebekahpadula">@rebekahpadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+
         </section>
-        <nav class="main-nav">
-            <ul class="main-nav-list">
-                <li class="main-nav--item"><a class="main-nav--link" href="./index.html">Home</a></li>
-                <li class="main-nav--item"><a class="main-nav--link" href="./roles.html">Roles</a></li>
-                <li class="main-nav--item"><a class="main-nav--link" href="./properties.html">States & Properties</a></li>
-                <li class="main-nav--item"><a class="main-nav--link" href="./definitions.html">Definitions</a></li>
-            </ul>
-        </nav>
 
-        <article class="main">
-            <header class="main__header" id="LandmarkRoles">
-                <h1>ARIA Landmark Role Summary</h1>
-            </header>
-            <p class="main__summary">Role Attributes should only be placed on an HTML5 equivalant element (nav gets a role of navigation etc) or non-semantic elements because they do not have semantic meaning. If you place a role on a semantic element (like a ul) most screen readers will override the role with the element's native one with the sepecified one.</p>
-           <section class="bit">
-                <header class="bit__header">
-                    <h1>Banner</h1>
-                    <p class="bit__summary">HTML5 Equivalant to &lt;header&gt;</p>
-                </header>
-                <p> Aria Banner Role is for site-wide sections of content, and to be added to either a header or div, it can be added to other elements but semantics and best practice advice against. There should only be one banner role per page of content. Header elements are not considered landmarks when they are contained within a section or article element.</p>
-                <p data-height="265" data-theme-id="dark" data-slug-hash="wWYgRW" data-default-tab="html" data-user="rebekahpadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/rebekahpadula/pen/wWYgRW/">role="banner"</a> by Rebekah Padula (<a href="http://codepen.io/rebekahpadula">@rebekahpadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+        <section class="roles__item" id="alertdialog">
+
+            <h1 class="roles__heading">
+                alertdialog
+            </h1>
+
+            <div class="roles__detail">
+                 <p class="roles__para">
+                     A type of dialog that contains an alert message, where initial focus goes to an element within the dialog. 
+                 </p>
+                 <p class="roles__para">
+                     Alert dialogs are used to convey messages to alert the user The <code>alertdialog</code> role goes on the node containing both the alert message and the rest of the dialog. Content authors should make alert dialogs modal.
+                 </p>
+                 <p class="roles__para">
+                     Unlike alert, alertdialog can receive a response from the user. An example would be to confirm that the user understands the alert being generated. When the alert dialog is displayed, authors should set focus to an active element within the alert dialog, such as a form edit field or and OK button.
+                 </p>
+                 <p class="roles__para">
+                     Authors should use <code>aria-describedby</code> on an alertdialog to point to the alert message element in the dialog.
+                 </p>
+                 <p class="roles__para">
+                     MDN states that alertdialog must always be given an accessible name through <code>aria-labelledby</code> or <code>aria-label</code> however this is not in the W3C documentaion.
+                 </p>
+                        
+                 <p data-height="265" data-theme-id="0" data-slug-hash="yabmga" data-default-tab="html,result" data-user="addiepadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/addiepadula/pen/yabmga/">alertdialog</a> by Addie Padula (<a href="http://codepen.io/addiepadula">@addiepadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
                 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-           </section>
+            </div>
 
-            <section class="bit">
-                <header class="bit__header">
-                    <h1>Navigation</h1>
-                    <p class="bit__summary">HTML5 Equivalant to &lt;nav&gt;</p>
-                </header>
-                <p>Use a nav or div as the container of a navigation list that is created with a ul or ol tag.</p>
-                <p>The container's role should be set to navigation</p>
-                <p>For pages/sites with more than one navigation present at a time, aria-label is required on the container to give a description of each navigation's purpose. If you want to give more information on a navigation you can use aria-describedby but this is not required.</p>
-                <p data-height="265" data-theme-id="dark" data-slug-hash="xOyYQd" data-default-tab="html" data-user="slkennedy" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/slkennedy/pen/xOyYQd/">Navigation</a> by Sara Kennedy (<a href="http://codepen.io/slkennedy">@slkennedy</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-                <script async src="//assets.codepen.io/assets/embed/ei.js"></script>               
-            </section>
+        </section>
 
-            <section class="bit">
-                <header class="bit__header">
-                    <h1>Complementary</h1>
-                    <p class="bit__summary">HTML5 Equivalant to &lt;aside&gt;</p>
-                </header>
-                <p>Complementary roles are the equvilant of using an aside. Think of them as tertiary content just the same as an aside as you add roles to your code.</p>
-                <p>A suppoerting section of the document, designed to be complementary to the main content at a similar level in the DOM hierarchy, but remains meaninful when seperated from the main content. The complementary role indicated that contained content is relevant to the main content.</p>
-                <p>Some examples might be show times, current weatherm related articles, or stocks to watch.</p>
-                <p data-height="265" data-theme-id="dark" data-slug-hash="oLaBOR" data-default-tab="html" data-user="rebekahpadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/rebekahpadula/pen/oLaBOR/">role="complementary"</a> by Rebekah Padula (<a href="http://codepen.io/rebekahpadula">@rebekahpadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+        <section class="roles__item" id="application">
+
+            <h1 class="roles__heading">
+                application
+            </h1>
+
+            <div class="roles__detail">
+                <p class="roles__para">
+                    A region declared as a web application, as opposed to a web document.
+                </p>
+                <p class="roles__para">
+                    When the user navigates an element assigned the role of <code>application</code>, assistive technologies that typically intercept standard keyboard events should switch to an application browsing mode, and pass keyboard events through to the web application. The intent is to hint to certain assistive technologies to switch from normal browsing mode into a mode more appropriate for interacting with a web application; some user agents have a browse navigation mode where keys, such as up and down arrows, are used to browse the document, and this native behavior prevents the use of these keys by a web application. 
+                </p>
+                <p class="roles__para">
+                    Authors should set the role of application on the element that encompasses the entire application. For instances of non-decorative static text or image content inside and application, authors should associate the text with a form widget or group (via <code>aria-label, aria-labelledby,</code> or <code>aria-describedby</code>) or separate the text into an element with role of <code>document</code> or <code>article</code>.
+                </p>
+                <p class="roles__para">
+                    Authors should provide a title or label for applications. Authors should use label text that is suitable for use as a navigation preview or table-of-contents entry for the page section.
+                </p>
+                <p data-height="200" data-theme-id="0" data-slug-hash="RGRoqm" data-default-tab="html" data-user="rebekahpadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/rebekahpadula/pen/RGRoqm/">RGRoqm</a> by Rebekah Padula (<a href="http://codepen.io/rebekahpadula">@rebekahpadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
                 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-            </section>
+            </div>
 
-            <section class="bit">
-                <header class="bit__header">
-                    <h1>Contentinfo</h1>
-                    <p class="bit__summary">HTML5 Equivalant to &lt;footer&gt;</p>
-                </header>
-                <p>The contentinfo role is usually for the footer of the page. Again, one per page. Footer elements are not considered landmarks when they are contained within a section or article element.</p>
-                <p data-height="265" data-theme-id="dark" data-slug-hash="ZOqLNo" data-default-tab="html" data-user="rebekahpadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/rebekahpadula/pen/ZOqLNo/">role="contentinfo"</a> by Rebekah Padula (<a href="http://codepen.io/rebekahpadula">@rebekahpadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section class="roles__item">
+
+            <h1 class="roles__heading">
+                article
+            </h1>
+
+            <div class="roles__detail">
+                <p class="roles__para">
+                    A section of a page that consists of a composition that forms an independent part of a document, page, or site.
+                </p>
+                <p class="roles__para">
+                    An article is <i>not</i> a navigational landmark, but may need to be nested to form a discussion where assistive technologies could pay attention to article nesting to assist the user in following the discussion. An article could be a forum post, a magazine or newspaper article, a web log entry, a user-submitted comment, or any other independent item of content. It is <i>independent</i> in that its contents could stand alone. When nesting articles, the child articles represent content that is related to the content of the parent article. For instance, a web log entry on a site that accepts user-submitted comments could represent the comments as the articles nested within the article for the web log entry. Author, heading, date, or other information associated with an article does not apply to nested articles.
+                </p>
+                <p class="roles__para">
+                    When the user navigates an element assigned the role of <code>article</code>, assistive technologies that typically intercept standard keyboard events should switch to document browsing mode, as opposed to passing keyboard events through to the web application. Assistive technologies may alos provide a feature allowing the user to navigate the hierarchy of any nested <code>article</code> elements.
+                </p>
+                <p class="roles__para">
+                    The ARIA article role is similar to the HTML5 <code>article</code> element; however the article element should still be given the ARIA role of article, since not all assistive technologies support HTML5 yet. 
+                </p>
+                <p data-height="200" data-theme-id="0" data-slug-hash="ALXOmN" data-default-tab="html,result" data-user="addiepadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/addiepadula/pen/ALXOmN/">article</a> by Addie Padula (<a href="http://codepen.io/addiepadula">@addiepadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
                 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-            </section>
+            </div>
 
-            <section class="bit">
-                <header class="bit__header">
-                    <h1>Form</h1>
-                    <p class="bit__summary">HTML5 Equivalant to &lt;form&gt;</p>
-                </header>
-                <p>The form role contains form elements which can be submitted by user. Please note that this is considered a navigable landmark only when labelled with aria-label or aria-labelledby.</p>
-                <p>A form may be a mix of host language form controls, scripted controls, and hyperlinks. Authors are reminded to use native host language semantics to create form controls whenever possible. For search facilities, authors SHOULD use the search role and not the generic form role. Authors SHOULD provide a visible label for the form referenced with aria-labelledby. If and author uses a script to submit a form based on a user action that would otherwise not trigger an <code>onsubmit</code> event, the author SHOULD provide the user with advance notification of the behavior. Use native host language sematics to create form controls whenever possible.</p>
-                <p><b>When testing the form role I found that a div containing form elements (inputs) does not throw any accessibility errors like I would expect.... My question is will the form tag be treated/announced appropriately by screen readers without the aria role?</b></p>
-                <p data-height="265" data-theme-id="dark" data-slug-hash="GqYWKo" data-default-tab="html" data-user="rebekahpadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/rebekahpadula/pen/GqYWKo/">role="form"</a> by Rebekah Padula (<a href="http://codepen.io/rebekahpadula">@rebekahpadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section class="roles__item">
+
+            <h1 class="roles__heading">
+                banner
+            </h1>
+
+            <div class="roles__detail">
+                <p class="roles__para">
+                    A region that contains mostly site-oriented content, rather than page-specific content.
+                </p>
+                <p class="roles__para">
+                    Site-oriented content typically includes things such as the logo or identity of the site sponsor, and site specific search tool. A banner usually appears at the top of the page and typically spans the full width.
+                </p>
+                <p class="roles__para">
+                    User agents should treat elements with the role of <code>banner</code> as navigational landmarks.
+                </p>
+                <p class="roles__para">
+                    Within any <code>document</code> or <code>application</code>, the author should mark no more than one element with the <code>banner</code> role.
+                </p>
+                <p class="roles__para">
+                    Because <code>document</code> and <code>application</code> elements can be nested in the DOM, they may have multiple <code>banner</code> elements as DOM descendants, assuming each of those is associated with different document nodes, either by a DOM nesting (<code>document</code> within <code>document</code>) or by use of the <code>aria-owns</code> attribute.
+                </p>
+                <p data-height="200" data-theme-id="0" data-slug-hash="qaNjEL" data-default-tab="html,result" data-user="rebekahpadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/rebekahpadula/pen/qaNjEL/">banner</a> by Rebekah Padula (<a href="http://codepen.io/rebekahpadula">@rebekahpadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
                 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-            </section>
+            </div>
 
-            <section class="bit">
-                <header class="bit__header">
-                    <h1>Log</h1>
-                    <p class="bit__summary">HTML5 Equivalant to &lt;form&gt;</p>
-                </header>
-                <p>A type of live region where new information is added and old information may disappear. Unlike other live regions, in this role there is a relationship between the arrival of new items in the log and the reading order.</p>
-                <p>New information is added only to the end of the log, not at arbitrary points.</p>
-                <p>Examples include chat logs, message history, game log, or an error log.</p>
-                <p>Note that elements with the role <code>log</code> have an implicit <code>aria-live</code> value of <code>polite</code> but you can change it if you want.</p>
-                <p data-height="265" data-theme-id="dark" data-slug-hash="rLqyNd" data-default-tab="html" data-user="rebekahpadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/rebekahpadula/pen/rLqyNd/">role="log"</a> by Rebekah Padula (<a href="http://codepen.io/rebekahpadula">@rebekahpadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section class="roles__item">
+
+            <h1 class="roles__heading">
+                button
+            </h1>
+
+            <div class="roles__detail">
+                <p class="roles__para">
+                    The button role should be used for clickable elements that trigger a response when activated by the user. Role="button" can make any element appear as a button control to a screen reader. If the <code>button</code> role is added to an element that is not focusable by itself, the <code>tabindex</code> attribute has to be used. Additionally, this role can be used in combination with the <code>aria-pressed</code> attribute to create toggle buttons.
+                </p>
+                <p class="roles__para">
+                    Button tags do not need <code>role="button"</code>. However, ARIA standards require that the button have a value, which for the button tag is whatever content you between the opening and closing tags. If the content does not explicitly convey what the button does, then you could use the <code>aria-label</code> attribute. The value on <code>input</code> tags is the <code>value</code> attribute.
+                <p data-height="200" data-theme-id="0" data-slug-hash="WGpQYQ" data-default-tab="html,result" data-user="addiepadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/addiepadula/pen/WGpQYQ/">button</a> by Addie Padula (<a href="http://codepen.io/addiepadula">@addiepadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
                 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-            </section>
+            </div>
 
-            <section class="bit">
-                <header class="bit__header">
-                    <h1>Main</h1>
-                    <p class="bit__summary">HTML5 Equivalant to &lt;main&gt;</p>
-                </header>
-                <p>The main role is for the main content of the page. Therer should only be one main landmark per page.</p>
-                <p data-height="265" data-theme-id="dark" data-slug-hash="ZOqZGj" data-default-tab="html" data-user="rebekahpadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/rebekahpadula/pen/ZOqZGj/">role="main"</a> by Rebekah Padula (<a href="http://codepen.io/rebekahpadula">@rebekahpadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+        </section>
+
+        <section class="roles__item">
+
+            <h1 class="roles__heading--obsolete">
+                checkbox <span class="roles__subheading">(out-of-date)</span>
+            </h1>
+
+            <div class="roles__detail">
+                <p class="roles__para">
+                    The checkbox role is used for checkable interactive controls.
+                </p>
+
+                <p class="roles__para">
+                    It is not a good idea to repurpose HTML elements when there is a semantic and accessible tag available to you. Try to use <code>input type="checkbox"</code> unless you want more control of the styling of your checkbox.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="roles__item">
+            
+            <h1 class="roles__heading--obsolete">
+                columnheader <span class="roles__subheading">(out-of-date)</span>
+            </h1>
+
+            <div class="roles__detail">
+                <p class="roles__para">
+                    A cell containing header information for a column.
+                </p>
+
+                <p class="roles__para">
+                    There is not much use for this role as all browsers support HTML table elements.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="roles__item">
+
+            <h1 class="roles__heading">
+                combobox
+            </h1>
+
+            <div class="roles__detail">
+                <p class="roles__para">
+                    A presentation of a <code>select</code>, usually similar to a textbox where users can type ahead to select an option, or type to enter an arbitrary text as a new item in the list.
+                </p>
+                <p class="roles__para">
+                    <code>combobox</code> is the combined presentation of a single line textfield with a listbox popup. The <code>combobox</code> may be editable. Typically editable combo boxes are used for autocomplete behavior, and authors should set <code>aria-autocomplete</code> attribute on the textfield.
+                </p>
+                <p class="roles__para">
+                    If an author sets a combobox's value of aria-autocomplete to 'none' (default), authors must manage and set focus on the associated listbox.
+                </p>
+                <p class="roles__para">
+                    If an author sets a combobox's value of aria-autocomplete to 'inline' or 'both', authors must update the value of the focused textfield, so asistive technologies can announce the currently selected value.
+                </p>
+                <p class="roles__para">
+                    To be keyboard accessible, authors should manage focus of descendants for all instances of this role.
+                </p>
+                <p class="roles__para">
+                    Elements with the role <code>combobox</code> have an implicit aria-haspopup value of <code>true</code>
+                </p>
+            </div>
+
+        </section>
+
+        <section class="roles__item">
+
+            <h1 class="roles__heading">
+                complementary
+            </h1>
+
+            <div class="roles__detail">
+                <p class="roles__para">
+                    A supporting section of the document, designed to be complementary to the main content at a similar level in the DOM hierarchy, but remains meaningful when separated from the main content.
+                </p>
+                <p class="roles__para">
+                    There are various types of content that would appropriately have this role. For example, in the case of a portal, this may include but not be limited to show times, current weather, related articles, or stocks to watch. The complementary role indicates that contained content is relevant to the main content. If the complementary content is completely separable main content, it may be appropriate to use a more general rule.
+                </p>
+                <p class="roles__para">
+                    User agents should treat elements with the role of <code>complementary</code> as navigational landmarks.
+                </p>
+                <p data-height="200" data-theme-id="0" data-slug-hash="yaXYpm" data-default-tab="html,result" data-user="addiepadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/addiepadula/pen/yaXYpm/">complementary</a> by Addie Padula (<a href="http://codepen.io/addiepadula">@addiepadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
                 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-            </section>
+            </div>
 
-             <section class="bit warn">
-                <header class="bit__header">
-                    <h1>Region</h1>
-                    <p class="bit__summary">HTML5 Equivalant to &lt;section&gt;</p>
-                </header>
-                <pre class="code">
-                    &lt;div class="support" role="region"&gt;
-                    &lt;/div&gt;</pre>
-                <p>NOTE THIS IS NOT AN ARIA LANDMARK</p>
-                <p>This is also a generic landmark. It should only be used when a more specific role is not available. Assistive technologies should treat this role as a complimentary region. Please note that this is considered a navigable landmark only when labelled with aria-label or aria-labelledby.</p>
-            </section>
+        </section>
 
-            <section class="bit warn">
-                <header class="bit__header">
-                    <h1>Article</h1>
-                    <p class="bit__summary">HTML5 Equivalant to &lt;article&gt;</p>
-                </header>
-                <pre class="code">
-                    &lt;article class="support" role="article"&gt;
-                    &lt;/article&gt;</pre>
-                <p>NOTE THIS IS NOT AN ARIA LANDMARK</p>
-            </section>
+        <section class="roles__item">
 
-            <section class="bit">
-                <header class="bit__header">
-                    <h1>Search</h1>
-                    <p class="bit__summary">HTML5 Equivalant to &lt;form&gt;</p>
-                </header>
-                <pre class="code">
-                    &lt;main class="primaryContent" role="search"&gt;
-                        &lt;label for="search"&gt;Search Here&lt;/label&gt;
-                        &lt;input type="text" id="search" role="" /&gt;
-                    &lt;/form&gt;</pre>
-                <p>Reserved for the search tool.</p>
-            </section>
+            <h1 class="roles__heading">
+                contentinfo
+            </h1>
 
-            <section class="bit">
-                <header class="bit__header">
-                    <h1>status</h1>
-                    <p class="bit__summary">HTML5 Equivalant to &lt;form&gt;</p>
-                </header>
-                <pre class="code">
-                    &lt;form class="form" role="status"&gt;
-                    &lt;/form&gt;</pre>
-                <p>Container for advisory info or feedback.</p>
-            </section>
+            <div class="roles__detail">
+                <p class="roles__para">
+                    A large perceivable region that contains information about the parent document.
+                </p>
+                <p class="roles__para">
+                    Exampes of information included in this region of the page are copyrights and links to privacy statements.
+                </p>
+                <p class="roles__para">
+                    User agents should treat elements with the role of <code>contentinfo</code> as navigational landmarks.
+                </p>
+                <p class="roles__para">
+                    Within any document of application, the author should mark no more than <b>one</b> element with the <code>contentinfo</code> role.
+                </p>
+                <p class="roles__para">
+                    Because <code>document</code> and <code>application</code> elements can be nested, they may have multiple <code>contentinfo</code> elements as DOM descendants, assuming each of those is associated with different document nodes, either by a DOM nsting (e.g., <code>document</code> within <code>document</code>) or by use of the <code>aria-owns</code> attribute.
+                </p>
+                <p data-height="200" data-theme-id="0" data-slug-hash="QKgBZX" data-default-tab="css,result" data-user="addiepadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/addiepadula/pen/QKgBZX/">contentinfo</a> by Addie Padula (<a href="http://codepen.io/addiepadula">@addiepadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+            </div>
 
-            <section class="bit">
-                <header class="bit__header">
-                    <h1>application</h1>
-                    <p class="bit__summary">HTML5 Equivalant to &lt;div&gt;</p>
-                </header>
-                <pre class="code">
-                    &lt;div class="primaryContent" role="application"&gt;
-                    &lt;/div&gt;</pre>
-                <p>Represents a unique software unit. Keyboard commands handled by application rather than browser itself. Use sparingly if at all. The times it is necessary to be used will be few and far between for the most part. Please note that this is considered a navigable landmark only when labelled with aria-label or aria-labelledby.</p>
-            </section>
+        </section>
 
-            <section class="bit">
-                <header class="bit__header">
-                    <h1>presentation</h1>
-                    <p class="bit__summary"></p>
-                </header>
-                <pre class="code">
-                    &lt;ul role="presentation"&gt;
-                        &lt;li&gt;Item 1&lt;/li&gt;
-                        &lt;li&gt;Item 2&lt;/li&gt;
-                    &lt;/ul&gt;</pre>
-                <p>This removes any semantic meaning from the element to which it is assigned. This also applies to elements' children that are required (lists or tables) the child items will inherit the role from the parent.</p>
-                <p>using this label tells assistive technology that the element is semantically neutral and irrelevant for accessibility.</p>
-                <p>Do not use this if the element is focusable.</p>
-                <p>Do not use this if it has any ARIA attribute other than hidden.</p>
-                <p>Do not use if the element is referenced by another elements ARIA controls or properties.</p>
-                <p>Do not use if a required child element has been explicitly marked with a role (ex role="button") the child will have a role of 'button' and not 'presentation'</p>
-            </section>
-        </article>
-    </main>
+        <section class="roles__item">
+
+            <h1 class="roles__heading">
+                dialog
+            </h1>
+
+            <div class="roles__detail">
+                <p class="roles__para">
+                    A dialog is an application window that is designed to interrupt the current processing of an application in order to prompt the user to enter information or require a response. See related <a href="#alertdialog">alertdialog</a>
+                </p>
+                <p class="roles__para">
+                    Authors should provide a dialog label. Labels may be provided with the <code>aria-label</code> or <code>aria-labelledby</code> attribute if other mechanisms are not available. Authors should ensure each active dialog has a focused descendant element that has keyboard focus.
+                </p>
+                <p data-height="200" data-theme-id="0" data-slug-hash="vXJkmg" data-default-tab="html,result" data-user="addiepadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/addiepadula/pen/vXJkmg/">dialog</a> by Addie Padula (<a href="http://codepen.io/addiepadula">@addiepadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+
+        </section>
+
+        <section class="roles__item">
+            
+            <h1 class="roles__heading">
+                directory
+            </h1>
+
+            <div class="roles__detail">
+                <p class="roles__para">
+                    A list of references to members of a group, such as a static table of contents
+                </p>
+                <p class="roles__para">
+                    Authors should use this role for a static table of contents, whether linked or unlinked. This includes tables of contents build with lists, including nested lists. Dynamic tables of contents, however, might use a <code><a href="#tree">tree</a></code> role instead.
+                </p>
+                <p data-height="200" data-theme-id="0" data-slug-hash="EgvXdV" data-default-tab="html,result" data-user="addiepadula" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/addiepadula/pen/EgvXdV/">EgvXdV</a> by Addie Padula (<a href="http://codepen.io/addiepadula">@addiepadula</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+
+        </section>
+
+        <section class="roles__item">
+
+            <h1 class="roles__heading">
+                document
+            </h1>
+
+            <div class="roles__detail">
+                <p class="roles__para">
+                    A region containing related information that is declared as document content, as opposed to a web <a href="#application">application.</a>
+                </p>
+                <p class="roles__para">
+                    The <code>document</code> role informs user agents of the need to augment browser keyboard support in order to allow users to visit and read any content within the document region.
+                </p>
+                <p class="roles__para">
+                    Authors should set the role of <code>document</code> on the element that encompasses the entire document.
+                </p>
+                <p class="roles__para">
+                    Authors should provide a title or lable for documents either through the title element in both HTML and SVG, or provide a visible label referenced by the document using <code>aria-labelledby</code>.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="roles__item--obsolete">
+
+            <h1 class="roles__heading--obsolete">
+                form <span class="roles__subheading">(out-of-date)</span>
+            </h1>
+
+            <div class="roles__detail">
+                <p class="roles__para">
+                    A landmark region that contains a collection of items and objects that combine to create a form. See related <code><a href="#search">search</a></code>.
+                </p>
+                <p class="roles__para">
+                    Using the form role is out of date since the HTML <code>form</code> tag has been implemented in all modern browsers.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="roles__item">
+
+            <h1 class="roles__heading">
+                grid
+            </h1>
+
+            <div class="roles__detail">
+                <p class="roles__para">
+                    A <code>grid</code> is an interactive control which contains cells of tabular data arranged in rows and columns, like a table.
+                </p>
+                <p class="roles__para">
+                    Grids do not necessarily imply presentation. The <code>grid</code> construct describes relationships between data such that it may be used for different presentations. Grids allow the user to move focus between cells using two dimensional navigation.
+                </p>
+                <p class="roles__para">
+                    Authors must ensure that elements with role <code>gridcell</code> are owned by elements with role <code>row</code>, which in turn are owned by an element with role <code>rowgroup</code>, <code>grid</code>, or <code>treegrid</code>. If the author applies any non-global ARIA states or properties to a native markup element that is acting as a row, (such as the <code>tr</code> element), the author must also apply the role of row. 
+                </p>
+                <p data-height="200" data-theme-id="0" data-slug-hash="c479864b389d39c0e137487d14e704a8" data-default-tab="html,result" data-user="UnumUX" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/UnumUX/pen/c479864b389d39c0e137487d14e704a8/">grid/gridcell</a> by UnumUX (<a href="http://codepen.io/UnumUX">@UnumUX</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+                
+            </div>
+
+        </section>
+
+        <section class="roles__item">
+
+            <h1 class="roles__heading">
+                gridcell
+            </h1>
+
+            <div class="roles__detail">
+                <p class="roles__para">
+                    A cell in a grid or treegrid.
+                </p>
+                <p class="roles__para">
+                    Unlike table cells within a table, authors should ensure a grid's gridcells are focusable through the use of tabindex or aria-activedescendant on the grid. They may also be editable.
+                </p>
+                <p class="roles__para">
+                    If relevant headers cannot be determined from the DOM structure, authors should explicitly indicate which header cells are relevant to the cell by referencing elements with role <code>rowheader</code> or <code>columnheader</code> using the <code>aria-describedby</code> attribute.
+                </p>
+                <p class="roles__para">
+                    Authors must ensure elements with role <code>gridcell</code> are contained in, or owned by, an element with the role <code>row</code>.
+                </p>
+                <p data-height="200" data-theme-id="0" data-slug-hash="c479864b389d39c0e137487d14e704a8" data-default-tab="html,result" data-user="UnumUX" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/team/UnumUX/pen/c479864b389d39c0e137487d14e704a8/">grid/gridcell</a> by UnumUX (<a href="http://codepen.io/UnumUX">@UnumUX</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+            </div>
+
+        </section>
+
+        <section class="roles__item">
+
+            <h1 class="roles__heading">
+                group
+            </h1>
+
+            <div class="roles__detail">
+                <p class="roles__para">
+                    A set of user interface objects which are not intended to be included in a page summary or table of contents by assistive technologies.
+                </p>
+                <p class="roles__para">
+                    Authors should use a role of <code>group</code> to form logical collections of items with related functionality in a widget. A group should not be considered a major perceivable section on a page. A group neither has a heading nor appears in the "Table of Contents". A group may delineate a set of treeitems having the same level in the tree or it may be used to group a set of related checkboxes in a form. When a group is used in the context of list, authors must limit its children to listitem elements.
+                </p>
+                <p class="roles__para">
+                    Proper handling of a group by assistive technologies, therefore, is determined by the context in which it is provided. Group members that are outside the DOM subtree of the group need to have explicit relationships assigned for them in order to participate in the group. Groups may also be nested. 
+                </p>
+                <p class="roles__para">
+                    See related <a href="#region"><code>region</code></a>
+                </p>
+
+                
+
+
+
+
+
+                
+
+                
+                
+
+
+
+
+
+
+
+    <script src="scripts/site.min.js"></script>
 </body>
-</html>

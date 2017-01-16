@@ -1,0 +1,16 @@
+&__item {
+    @media screen and (min-width: 600px) {
+        display: inline-block;
+    }
+
+    &:hover {
+        background-color: lighten(#444, 10%);
+    }
+
+    &--active {
+        background-color: lighten(#444, 10%);
+        @media screen and (min-width: 600px) {
+            display: inline-block;
+        }
+    }
+}

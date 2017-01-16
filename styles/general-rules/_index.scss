@@ -1,0 +1,9 @@
+@import 'base';
+
+.general-rules {
+    @include base();
+    @import 'heading';
+    @import 'info';
+    @import 'section';
+    @import 'item';
+}

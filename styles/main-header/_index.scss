@@ -1,0 +1,7 @@
+@import 'base';
+
+.main-header {
+    @include base();
+    @import 'heading';
+    @import 'subheading';
+}
